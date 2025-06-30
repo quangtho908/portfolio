@@ -11,13 +11,12 @@ export default function Projects() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [windowWidth, setWindowWidth] = useState(0);
 
-  const {projects, filterProjects} = useProjectStore();
+  const {projects} = useProjectStore();
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     handleResize();
     window.addEventListener('resize', handleResize);
-    // filterProjects()
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 

@@ -1,6 +1,4 @@
 import {NextRequest, NextResponse} from "next/server";
-import clickup from "@api/clickup";
-
 export async function GET(
   req: NextRequest,
   { params }: { params: Promise<{ slug: string }> }
@@ -12,15 +10,21 @@ export async function GET(
     if(!apiKey || !workspaceId || !slug) {
       throw new Error("Server error try it later")
     }
-    clickup.auth(apiKey);
-    const { data } = await clickup.getDocPages({
-      docId: slug,
-      workspaceId: parseInt(workspaceId),
-      content_format: "text/md"
+
+    const res = await fetch(`https://api.clickup.com/api/v3/workspaces/${workspaceId}/docs/${slug}/pages`, {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: apiKey
+      }
     })
 
+    if(!res.ok) throw new Error("Server error try it later");
+
+    const data = await res.json();
     return new NextResponse(JSON.stringify(data), {status: 200})
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     return new NextResponse(JSON.stringify({message: "Server error try it later"}), {status: 500});
   }

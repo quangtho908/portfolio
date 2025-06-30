@@ -1,5 +1,4 @@
 import {NextResponse} from "next/server";
-import clickup from "@api/clickup";
 
 export async function GET() {
   try {
@@ -8,15 +7,21 @@ export async function GET() {
     if(!apiKey || !spaceId) {
       throw new Error("Server error try it later")
     }
-    clickup.auth(apiKey);
-    const { data } = await clickup.getFolders({
-      archived: false,
-      space_id: parseInt(spaceId),
+    const res= await fetch(`https://api.clickup.com/api/v2/space/${spaceId}/folder`, {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: apiKey,
+      }
     })
+    if(!res.ok) throw new Error("Server error try it later");
 
-    return new NextResponse(JSON.stringify(data), {status: 200})
+    const {folders} = await res.json();
 
+    return new NextResponse(JSON.stringify({folders}), {status: 200})
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
-    return new NextResponse(JSON.stringify({message: "Server error try it later"}), {status: 500});
+    return new NextResponse(JSON.stringify({message: "Server error try it later", folders: []}), {status: 500});
   }
 }

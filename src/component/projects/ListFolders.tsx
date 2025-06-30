@@ -11,7 +11,7 @@ export default function ListFolders({folders}: Props) {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [currentFolder, setCurrentFolder] = useState(folders[0].id)
+  const [currentFolder, setCurrentFolder] = useState(folders[0]?.id)
 
   const {filterProjects} = useProjectStore();
 
@@ -38,7 +38,9 @@ export default function ListFolders({folders}: Props) {
 
   useEffect(() => {
     checkScrollButtons();
-    filterProjects({folderId: currentFolder})
+    if(currentFolder) {
+      filterProjects({folderId: currentFolder})
+    }
     const scrollContainer = scrollContainerRef.current;
     if (scrollContainer) {
       scrollContainer.addEventListener('scroll', checkScrollButtons);
