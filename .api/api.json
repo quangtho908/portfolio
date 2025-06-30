@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "apis": [
+    {
+      "identifier": "clickup",
+      "source": "@clickup/v2.0#65951pmcdogop1",
+      "integrity": "sha512-Ff3D4VzD0maRU6ib5ubM2yeT1MAEo57FZU3vXiWwMB4nVxx0AVRQMRW4PRsOOi+rU2u4bj8BlcLqFXIa1rXtqQ==",
+      "installerVersion": "6.1.3"
+    }
+  ]
+}

@@ -4,48 +4,20 @@ import {ChevronLeft, ChevronRight} from "lucide-react";
 import AppButton from "@/component/common/AppButton";
 import IconButton from "@/component/common/IconButton";
 import CardProject from "@/component/projects/CardProject";
+import {useProjectStore} from "@/store/projects/projectsStore";
 
-const projects: Project[] = [
-  {
-    id: 1,
-    name: "Mobile App Development",
-    description: "Embrace Mobility with Confidence Mobile devices have revolutionized the way we interact with the world.",
-    // icon: <Zap className="w-8 h-8 text-international-orange-500" />
-  },
-  {
-    id: 2,
-    name: "Mobile App Development",
-    description: "Embrace Mobility with Confidence Mobile devices have revolutionized the way we interact with the world.",
-    // icon: <Zap className="w-8 h-8 text-international-orange-500" />
-  },
-  {
-    id: 3,
-    name: "Mobile App Development",
-    description: "Embrace Mobility with Confidence Mobile devices have revolutionized the way we interact with the world.",
-    // icon: <Zap className="w-8 h-8 text-international-orange-500" />
-  },
-  {
-    id: 4,
-    name: "Web Development",
-    description: "Creating responsive and modern web applications with cutting-edge technologies.",
-    // icon: <Zap className="w-8 h-8 text-international-orange-500" />
-  },
-  {
-    id: 5,
-    name: "UI/UX Design",
-    description: "Designing intuitive and beautiful user interfaces that enhance user experience.",
-    // icon: <Zap className="w-8 h-8 text-international-orange-500" />
-  }
-];
 
 export default function Projects() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [windowWidth, setWindowWidth] = useState(0);
 
+  const {projects, filterProjects} = useProjectStore();
+
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     handleResize();
     window.addEventListener('resize', handleResize);
+    // filterProjects()
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 

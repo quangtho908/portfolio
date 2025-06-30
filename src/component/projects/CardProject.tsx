@@ -18,15 +18,12 @@ export default function CardProject({project}: Props) {
       </div>
 
       {/* Content */}
-      <h3 className="text-xl font-bold text-tapa-800 mb-4">
+      <h3 className="text-xl font-bold text-tapa-800">
         {project.name}
       </h3>
-      <p className="text-tapa-600 leading-relaxed mb-6">
-        {project.description}
-      </p>
 
       {/* CTA Button */}
-      <AppButton title={"Details"} icon={<ArrowRight size={20}/>}/>
+      <AppButton className="mt-5" onClick={() => window.location.href = `/${project.id}`} title={"Details"} icon={<ArrowRight size={20}/>}/>
     </div>
   )
 }

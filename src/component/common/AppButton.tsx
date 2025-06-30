@@ -25,11 +25,13 @@ type Props = {
   title: string;
   icon?: JSX.Element;
   className?: string;
+  onClick?: () => void;
 }
 
-export default function AppButton({pattern = "fill", title, icon, className}: Props) {
+export default function AppButton({pattern = "fill", title, icon, className, onClick}: Props) {
   return (
     <button
+      onClick={onClick}
       className={`${styles[pattern].original} ${styles[pattern].hover} flex justify-center items-center gap-3 cursor-pointer px-6 py-2 rounded-lg font-medium transition-all duration-300 ${className}`}
     >
       {title}

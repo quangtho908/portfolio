@@ -1,5 +1,4 @@
-type Project = {
-  id: number
+type Post = {
   name: string
   date_created: number
 }
