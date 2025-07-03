@@ -5,9 +5,9 @@ import {useState} from "react";
 type ViewMode = "desktop" | "tablet" | "mobile";
 
 const viewPort = {
-  desktop: "",
-  tablet: "w-[820px] py-15 px-3 rounded-2xl bg-tapa-900 my-5",
-  mobile: "w-[380px] py-10 px-3 rounded-3xl bg-tapa-900 my-5"
+  desktop: "h-screen",
+  tablet: "w-[820px] h-[1180px] py-15 px-3 rounded-2xl bg-tapa-900 my-5",
+  mobile: "w-[390px] h-[844px] py-10 px-3 rounded-3xl bg-tapa-900 my-5"
 }
 
 type Props = {
@@ -49,7 +49,7 @@ export default function PreviewFrame({project}: Props) {
         </div>
       </header>
       <div className={`${viewPort[view]} mx-auto duration-300`}>
-        <iframe src={project.url} className="h-[100vh] w-full border bg-white"></iframe>
+        <iframe src={project.url} className="h-full w-full border bg-white"></iframe>
       </div>
     </div>
   )
