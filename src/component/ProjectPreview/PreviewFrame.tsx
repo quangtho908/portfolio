@@ -35,14 +35,14 @@ export default function PreviewFrame({project}: Props) {
           <div className={`p-2 ${view == "tablet" ? "bg-tapa-50 rounded-md" : ""}`}>
             <Tablet
               size={35}
-              className={`cursor-pointer ${view == "desktop" ? "text-tapa-800" : "text-tapa-100"}`}
+              className={`cursor-pointer ${view == "tablet" ? "text-tapa-800" : "text-tapa-100"}`}
               onClick={() => changeView("tablet")}
             />
           </div>
           <div className={`p-2 ${view == "mobile" ? "bg-tapa-50 rounded-md" : ""}`}>
             <Smartphone
               size={35}
-              className={`cursor-pointer ${view == "desktop" ? "text-tapa-800" : "text-tapa-100"}`}
+              className={`cursor-pointer ${view == "mobile" ? "text-tapa-800" : "text-tapa-100"}`}
               onClick={() => changeView("mobile")}
             />
           </div>
