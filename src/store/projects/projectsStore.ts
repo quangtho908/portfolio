@@ -16,13 +16,14 @@ export const useProjectStore = create<ProjectStore>((set) => ({
     // const searchParams = new URLSearchParams(params);
     set({loading: true})
     const res = await fetch(`/api/posts?${new URLSearchParams(params)}`);
-    const {docs} = await res.json();
+    const {projects} = await res.json();
+    console.log(projects);
     // const size= parseInt(params["size"] || "20");
     // if(_.isEmpty(params["page"]) || params["page"] === "1") {
     //   set({projects, hasMore: projects.length === size});
     //   return;
     // }
-    set({projects: docs || [], loading: false});
+    set({projects: projects || [], loading: false});
   },
   clearProjects: () => set({projects: [], hasMore: true}),
 }))

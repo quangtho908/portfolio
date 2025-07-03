@@ -1,42 +1,22 @@
 import {NextRequest, NextResponse} from "next/server";
+import {db} from "@/utils/firestore/config";
+import _ from "lodash";
 
 export async function GET(
   req: NextRequest
 ) {
   try {
     const searchParams = req.nextUrl.searchParams
-    const apiKey = process.env.CLICKUP_API_KEY;
-    const workspaceId = process.env.CLICKUP_WORKSPACE_ID;
     const folderId = searchParams.get("folderId");
-    if(!apiKey || !workspaceId) {
-      throw new Error("Server error try it later")
-    }
+    const folder = await db.doc(`/folders/${folderId}`).get()
+    const projects = await db.collection("projects")
+      .where("folder", "==", folder.ref)
+      .get()
 
-    const commonFilter = new URLSearchParams({
-      deleted: "false",
-      archived: "false",
-      limit: "50"
-    })
-
-    if(folderId) {
-      commonFilter.set("parent_id", folderId);
-      commonFilter.set("parent_type", "FOLDER");
-    }
-
-    const res = await fetch(
-      `https://api.clickup.com/api/v3/workspaces/${workspaceId}/docs?${commonFilter}`, {
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-        Authorization: apiKey,
-      }
-    })
-
-    if(!res.ok) throw new Error("Server error try it later");
-
-    const {docs} = await res.json();
-
-    return new NextResponse(JSON.stringify({docs}), {status: 200})
+    return new NextResponse(JSON.stringify({projects: projects.docs.map((doc) => ({
+        id: doc.id,
+        ..._.omit(doc.data(), "folder"),
+      }))}), {status: 200})
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {

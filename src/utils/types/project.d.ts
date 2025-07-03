@@ -1,5 +1,7 @@
 type Project = {
-  id: number
+  id: string
+  featured_image: string
+  slug: string
+  url: string
   name: string
-  date_created: number
 }
