@@ -3,6 +3,7 @@ import AppButton from "@/component/common/AppButton";
 import {useState} from "react";
 import {Menu, X} from "lucide-react";
 import {usePathname} from "next/navigation";
+import Image from "next/image";
 
 const routes = [
   {
@@ -35,12 +36,7 @@ export default function Header() {
     <div className="shadow-sm px-4">
       <header className="flex items-center justify-between max-w-7xl mx-auto py-4 bg-white ">
         <div className="flex items-center space-x-2">
-          <div
-            className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
-            <div className="w-6 h-6 border-2 border-white rounded-full flex items-center justify-center">
-              <div className="w-2 h-2 bg-white rounded-full"></div>
-            </div>
-          </div>
+          <Image src={"/assets/images/logo.svg"} alt={"Stevdev Service"} width={40} height={40} />
           <div className="text-lg font-bold text-gray-800">
             STEVDEV
           </div>

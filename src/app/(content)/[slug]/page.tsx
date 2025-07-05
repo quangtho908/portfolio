@@ -3,13 +3,42 @@ import {redirect} from "next/navigation";
 import ImageSlider from "@/component/ProjectPreview/ImageSlider";
 import {Award, Calendar, Code, FolderOpen, User} from "lucide-react";
 import Actions from "@/component/ProjectPreview/Actions";
+import {Metadata} from "next";
 type Props = {
   params: Promise<{ slug: string }>
 }
 
+export async function generateMetadata(
+  { params }: Props
+): Promise<Metadata> {
+  const slug = (await params).slug
+
+  // fetch post information
+  const res = await fetch(`${process.env.NEXT_SERVER_HOST}/api/posts/${slug}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+    },
+    cache: "force-cache"
+  });
+  const {project} = await res.json();
+  return {
+    title: `Info Project ${project.name}`,
+    description: project.description,
+  }
+}
+
 export default async function DetailProject({ params }: Props) {
   const {slug} = await params;
-  const res = await fetch(`${process.env.NEXT_SERVER_HOST}/api/posts/${slug}`);
+  const res = await fetch(`${process.env.NEXT_SERVER_HOST}/api/posts/${slug}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+    },
+    cache: "force-cache"
+  });
   const {project} = await res.json();
   if(!res.ok) {
     redirect("/")
@@ -20,7 +49,7 @@ export default async function DetailProject({ params }: Props) {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">My Portfolio</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Info Project {project.name}</h1>
           <p className="text-lg text-gray-600">Showcasing my development projects and achievements</p>
         </div>
 

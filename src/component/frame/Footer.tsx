@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Linkedin } from 'lucide-react';
+import Image from "next/image";
 
 export default function Footer ()  {
   const footerLinks = {
@@ -25,12 +26,7 @@ export default function Footer ()  {
           {/* Logo và Copyright */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2 max-w-7xl">
-              <div
-                className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
-                <div className="w-6 h-6 border-2 border-white rounded-full flex items-center justify-center">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                </div>
-              </div>
+              <Image src={"/assets/images/logo.svg"} alt={"Stevdev Service"} width={40} height={40} />
               <div className="text-lg font-bold text-gray-800">
                 STEVDEV
               </div>

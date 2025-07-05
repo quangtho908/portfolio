@@ -19,7 +19,7 @@ export default function CardProject({project}: Props) {
 
       <div className="p-5 flex flex-col gap-4">
         <h3 className="text-lg font-bold">{project.name}</h3>
-        <AppButton onClick={() => window.open(`/${project.slug}`,'_blank')} title={"Details"} icon={<ArrowRight size={20}/>}/>
+        <AppButton onClick={() => window.location.href = `/${project.slug}`} title={"Details"} icon={<ArrowRight size={20}/>}/>
 
       </div>
     </div>
