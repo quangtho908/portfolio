@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description: "Stevdev service, web, application development",
   icons: {
     icon: [
-      { url: "/icons/favicon.icon" },
+      { url: "/icons/favicon.ico" },
       {
         url: "/icons/icon.png",
         type: "image/png",
