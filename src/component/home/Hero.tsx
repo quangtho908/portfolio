@@ -1,3 +1,4 @@
+'use client'
 import AppButton from "@/component/common/AppButton";
 import Image from "next/image";
 
@@ -7,21 +8,20 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
         <div className="space-y-8 py-12 flex flex-col items-center md:items-start">
-          <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-center md:text-left">
-            <span className='text-international-orange-500'>Digital Solutions</span>{' '}
-            <span className='text-tapa-500'>That Drive Success</span>
+          <h1 className="text-3xl lg:text-4xl font-bold leading-tight text-center md:text-left">
+            <span className='text-international-orange-500'>Web & App Solutions</span>{' '}
+            <span className='text-tapa-500'>That Empower Your Business</span>
           </h1>
 
           <p className="text-md md:text-lg leading-relaxed text-tapa-500 text-center md:text-left">
-            We believe in the transformative power of digital solutions. Our team of
-            experts is dedicated to helping businesses like yours thrive in the fast-
-            paced digital landscape. From captivating web design to data-driven
-            marketing strategies, we are committed to delivering results that exceed
-            expectations.
+            We specialize in crafting modern, high-impact websites and custom applications that help
+            your business stand out and grow. From intuitive UI/UX design to robust backend development,
+            we deliver tailored digital experiences that drive real results. Let us help you turn your
+            ideas into powerful digital products that exceed expectations.
           </p>
 
           <div className="flex flex-wrap gap-4 items-center justify-center">
-            <AppButton title={"My projects"} />
+            <AppButton onClick={() => window.location.href = "/projects"} title={"My projects"} />
             <AppButton title={"Contact me"} pattern={"outline"} />
           </div>
         </div>

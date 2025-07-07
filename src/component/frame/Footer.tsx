@@ -1,21 +1,31 @@
+'use client'
 import React from 'react';
-import { Facebook, Linkedin } from 'lucide-react';
 import Image from "next/image";
+import AppLink from "@/component/common/AppLink";
 
 export default function Footer ()  {
+
+  const scrollIntoView = (id: string) => {
+    const view = document.getElementById(id);
+    if (!view) {
+      return;
+    }
+    view.scrollIntoView({behavior: 'smooth', block: 'start'})
+  }
+
   const footerLinks = {
     noiDung: [
-      { title: "Services", href: "#services" },
-      { title: "Projects", href: "#portfolio" }
+      { title: "Services", href: "services" },
+      { title: "Projects", href: "projects" }
     ],
     dieuKhoan: [
-      { title: "Điều khoản dịch vụ", href: "#terms" },
-      { title: "Chính sách bảo mật", href: "#privacy" },
-      { title: "Chính sách bảo hành", href: "#warranty" }
+      { title: "Term & Condition", href: "/terms-conditions" },
+      { title: "Privacy Policy", href: "/privacy-policy" },
+      { title: "Warranty Policy", href: "/warranty-policy" },
     ],
     lienHe: [
-      { title: "Facebook", href: "#facebook", icon: <Facebook className="w-4 h-4" /> },
-      { title: "LinkedIn", href: "#linkedin", icon: <Linkedin className="w-4 h-4" /> },
+      { title: "Facebook", href: "https://www.facebook.com/tho.developer", icon: <Image src={"/icons/facebook.svg"} alt={"Stevdev services"} width={15} height={15} />},
+      { title: "LinkedIn", href: "https://www.linkedin.com/in/quangtho/", icon: <Image src={"/icons/linkedin.svg"} alt={"Stevdev services"} width={15} height={15} /> },
     ]
   };
 
@@ -44,12 +54,7 @@ export default function Footer ()  {
             <ul className="space-y-2">
               {footerLinks.noiDung.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-gray-600 hover:text-orange-500 transition-colors duration-300 text-sm"
-                  >
-                    {link.title}
-                  </a>
+                  <AppLink title={link.title} onClick={() => scrollIntoView(link.href)} />
                 </li>
               ))}
             </ul>
@@ -63,12 +68,7 @@ export default function Footer ()  {
             <ul className="space-y-2">
               {footerLinks.dieuKhoan.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-gray-600 hover:text-orange-500 transition-colors duration-300 text-sm"
-                  >
-                    {link.title}
-                  </a>
+                  <AppLink title={link.title} onClick={() => window.location.href = link.href} />
                 </li>
               ))}
             </ul>
@@ -81,16 +81,13 @@ export default function Footer ()  {
             </h4>
             <div className="space-y-3">
               {footerLinks.lienHe.map((link, index) => (
-                <a
+                <AppLink
                   key={index}
-                  href={link.href}
-                  className="flex items-center space-x-2 text-gray-600 hover:text-orange-500 transition-colors duration-300 text-sm group"
-                >
-                  <span className="group-hover:scale-110 transition-transform duration-300">
-                    {link.icon}
-                  </span>
-                  <span>{link.title}</span>
-                </a>
+                  onClick={() => window.open(link.href, '_blank')}
+                  className="flex gap-2 items-center space-x-2 text-gray-600 hover:text-orange-500 transition-colors duration-300 text-sm group"
+                  icon={link.icon}
+                  title={link.title}
+                />
               ))}
             </div>
           </div>
@@ -103,15 +100,9 @@ export default function Footer ()  {
               © 2025 StevDev. All rights reserved.
             </p>
             <div className="flex items-center space-x-6">
-              <a href="#terms" className="text-sm text-gray-500 hover:text-orange-500 transition-colors duration-300">
-                Terms of Service
-              </a>
-              <a href="#privacy" className="text-sm text-gray-500 hover:text-orange-500 transition-colors duration-300">
-                Privacy Policy
-              </a>
-              <a href="#cookies" className="text-sm text-gray-500 hover:text-orange-500 transition-colors duration-300">
-                Cookie Policy
-              </a>
+              {footerLinks.dieuKhoan.map((link, index) => (
+                <AppLink key={index} title={link.title} onClick={() => {}} />
+              ))}
             </div>
           </div>
         </div>

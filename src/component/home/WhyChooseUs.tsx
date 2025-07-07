@@ -1,15 +1,20 @@
+import {BriefcaseIcon, Compass, Monitor} from "lucide-react";
+
 const values = [
   {
-    title: "Expertise That Drives Results",
-    description: "Our team of seasoned professionals brings years of experience and expertise to the table.",
+    title: "Proven Expertise",
+    description: "Leverage years of experience and deep technical knowledge to deliver results that matter.",
+    icon: <BriefcaseIcon size={35} className="text-tapa-50" />,
   },
   {
-    title: "Tailored Business Solutions",
-    description: "We understand that every business is unique. That's why our solutions are customized.",
+    title: "Customized Strategies",
+    description: "Every business is unique — that's why my solutions are carefully crafted to fit your goals and challenges.",
+    icon: <Compass size={35} className="text-tapa-50" />
   },
   {
-    title: "Cutting-Edge Web Design",
-    description: "Leave a lasting impression on your audience with our top-notch web design services.",
+    title: "Impactful Design & Development",
+    description: "LCreate unforgettable digital experiences that captivate your audience and elevate your brand.",
+    icon: <Monitor size={35} className="text-tapa-50" />
   }
 ]
 
@@ -23,9 +28,9 @@ export default function WhyChooseUs() {
             <span className="text-international-orange-500">What I can help you?</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-4xl mx-auto leading-relaxed">
-            Offers a multitude of advantages. Experience increased brand visibility, improved customer engagement, and
-            higher ROI. Our tailored solutions are designed to meet your unique business needs, ensuring lasting
-            success.
+            Unlock your brand’s full potential with tailored strategies and creative solutions.
+            From boosting your online presence to building powerful digital experiences, I’m here
+            to help you achieve lasting growth and measurable impact.
           </p>
         </div>
 
@@ -41,10 +46,7 @@ export default function WhyChooseUs() {
                 <div
                   className="absolute bg-international-orange-500 inset-2 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
                 >
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                          d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
-                  </svg>
+                  {value.icon}
                 </div>
               </div>
 

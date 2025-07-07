@@ -1,5 +1,4 @@
 'use client'
-import AppButton from "@/component/common/AppButton";
 import {useState} from "react";
 import {Menu, X} from "lucide-react";
 import {usePathname} from "next/navigation";
@@ -57,11 +56,7 @@ export default function Header() {
             </a>
           ))}
         </div>
-
-        {/* Desktop Contact Button */}
-        <div className="hidden md:block">
-          <AppButton title="Contact me"/>
-        </div>
+        <div></div>
 
         {/* Mobile Menu Button */}
         <button
@@ -116,11 +111,6 @@ export default function Header() {
             </a>
           ))}
         </nav>
-
-        {/* Mobile Contact Button */}
-        <div className="px-6 w-full">
-          <AppButton title="Contact me" className={"w-full"}/>
-        </div>
       </div>
     </div>
   )

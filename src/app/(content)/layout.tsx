@@ -15,8 +15,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Stevdev Developer Service",
-  description: "Stevdev service, web, application development",
+  title: "Web & App Solutions That Empower Your Business",
+  description: `We specialize in crafting modern, high-impact websites and custom 
+  applications that help your business stand out and grow. From intuitive UI/UX 
+  design to robust backend development, we deliver tailored digital experiences 
+  that drive real results. Let us help you turn your ideas into powerful digital 
+  products that exceed expectations.`,
   icons: {
     icon: [
       { url: "/icons/favicon.ico" },
