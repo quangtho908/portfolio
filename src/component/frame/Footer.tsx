@@ -101,7 +101,7 @@ export default function Footer ()  {
             </p>
             <div className="flex items-center space-x-6">
               {footerLinks.dieuKhoan.map((link, index) => (
-                <AppLink key={index} title={link.title} onClick={() => {}} />
+                <AppLink key={index} title={link.title} onClick={() => window.location.href = link.href} />
               ))}
             </div>
           </div>

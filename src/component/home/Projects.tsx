@@ -47,7 +47,7 @@ export default function Projects({projects}: Props) {
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="flex flex-col items-center text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-tapa-800 mb-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-tapa-800 mb-6">
             Some Projects
           </h2>
           <p className="text-lg text-tapa-600 max-w-4xl mx-auto leading-relaxed mb-8">

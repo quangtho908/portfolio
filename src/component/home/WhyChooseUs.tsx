@@ -24,7 +24,7 @@ export default function WhyChooseUs() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
             <span className="text-international-orange-500">What I can help you?</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-4xl mx-auto leading-relaxed">

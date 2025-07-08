@@ -33,7 +33,7 @@ export default function AppButton({pattern = "fill", title, icon, className, onC
   return (
     <button
       onClick={onClick}
-      className={`${styles[pattern].original} ${styles[pattern].hover} flex justify-center items-center gap-3 cursor-pointer px-6 py-2 rounded-lg font-medium transition-all duration-300 ${className}`}
+      className={`flex justify-center items-center gap-3 cursor-pointer px-6 py-2 rounded-lg font-medium transition-all duration-300 ${styles[pattern].original} ${styles[pattern].hover}  ${className} `}
     >
       {title}
       {icon ? icon : <></>}

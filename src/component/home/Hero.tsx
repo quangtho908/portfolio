@@ -22,7 +22,7 @@ export default function Hero() {
 
           <div className="flex flex-wrap gap-4 items-center justify-center">
             <AppButton onClick={() => window.location.href = "/projects"} title={"My projects"} />
-            <AppButton title={"Contact me"} pattern={"outline"} />
+            <AppButton onClick={() => window.location.href = "/contact"} title={"Contact me"} pattern={"outline"} />
           </div>
         </div>
 

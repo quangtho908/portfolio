@@ -2,6 +2,7 @@
 
 import {useEffect, useRef, useState} from "react";
 import {useProjectStore} from "@/store/projects/projectsStore";
+import AppButton from "@/component/common/AppButton";
 
 type Props = {
   folders: Folder[]
@@ -11,7 +12,7 @@ export default function ListFolders({folders}: Props) {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [currentFolder, setCurrentFolder] = useState(folders[0]?.id)
+  const [currentFolder, setCurrentFolder] = useState("")
 
   const {filterProjects} = useProjectStore();
 
@@ -38,9 +39,7 @@ export default function ListFolders({folders}: Props) {
 
   useEffect(() => {
     checkScrollButtons();
-    if(currentFolder) {
-      filterProjects({folderId: currentFolder})
-    }
+    filterProjects({folderId: currentFolder})
     const scrollContainer = scrollContainerRef.current;
     if (scrollContainer) {
       scrollContainer.addEventListener('scroll', checkScrollButtons);
@@ -73,21 +72,24 @@ export default function ListFolders({folders}: Props) {
           className="flex gap-4 overflow-x-auto scrollbar-hide"
           style={{scrollbarWidth: 'none', msOverflowStyle: 'none'}}
         >
+          <AppButton
+            title={"All"}
+            pattern={!currentFolder ? "fill" : "outline"}
+            onClick={() => {
+              filterProjects({folderId: ""})
+              setCurrentFolder("")
+            }}
+          />
           {folders.map((folder) => (
-            <button
+            <AppButton
+              title={folder.name}
               key={folder.id}
               onClick={() => {
                 filterProjects({folderId: folder.id})
                 setCurrentFolder(folder.id)
               }}
-              className={`
-                cursor-pointer flex-shrink-0 px-6 py-4 rounded-xl text-white font-medium text-lg whitespace-nowrap
-                transition-all duration-300 ease-in-out hover:shadow-md min-w-max 
-                ${currentFolder === folder.id ? 'bg-international-orange-500' : 'bg-gray-400 hover:bg-international-orange-500' }
-              `}
-            >
-              {folder.name}
-            </button>
+              pattern={currentFolder === folder.id ? "fill" : "outline"}
+            />
           ))}
         </div>
 

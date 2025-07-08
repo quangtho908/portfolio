@@ -23,8 +23,8 @@ export default async function Home() {
       <main>
         <Hero />
         <Services />
-        <WhyChooseUs />
         <Projects projects={projects || []} />
+        <WhyChooseUs />
       </main>
     </div>
   );
