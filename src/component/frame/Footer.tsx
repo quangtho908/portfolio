@@ -77,7 +77,7 @@ export default function Footer ()  {
           {/* Liên hệ */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-orange-500">
-              Liên hệ
+              Contact
             </h4>
             <div className="space-y-3">
               {footerLinks.lienHe.map((link, index) => (
