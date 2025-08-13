@@ -4,14 +4,17 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 import AppButton from "@/components/common/AppButton";
+import useTranslation from "@/hooks/useTranslation";
 import type { Project } from "@/payload-types";
 import getImageUrl from "@/utils/getImageUrl";
+import dataI18n from "@/utils/i18n";
 
 type Props = {
   project: Project;
 };
 
 export default function CardProject({ project }: Props) {
+  const { t } = useTranslation();
   return (
     <div
       key={project.id}
@@ -33,7 +36,7 @@ export default function CardProject({ project }: Props) {
           onClick={() => {
             window.location.href = `/${project.slug}`;
           }}
-          title={"Details"}
+          title={t(dataI18n.details)}
           icon={<ArrowRight size={20} />}
         />
       </div>

@@ -4,6 +4,8 @@ import Image from "next/image";
 import React from "react";
 
 import AppLink from "@/components/common/AppLink";
+import useTranslation from "@/hooks/useTranslation";
+import dataI18n from "@/utils/i18n";
 
 export default function Footer() {
   const scrollIntoView = (id: string) => {
@@ -14,15 +16,16 @@ export default function Footer() {
     view.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const { t } = useTranslation();
+
   const footerLinks = {
     noiDung: [
-      { title: "Services", href: "services" },
-      { title: "Projects", href: "projects" },
+      { title: "services", href: "services" },
+      { title: "projects", href: "projects" },
     ],
     dieuKhoan: [
-      { title: "Term & Condition", href: "/terms-conditions" },
-      { title: "Privacy Policy", href: "/privacy-policy" },
-      { title: "Warranty Policy", href: "/warranty-policy" },
+      { title: "privacy", href: "/privacy-policy" },
+      { title: "warranty", href: "/warranty-policy" },
     ],
     lienHe: [
       {
@@ -73,13 +76,13 @@ export default function Footer() {
           {/* Nội dung */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-orange-500">
-              Information
+              {t(dataI18n.information)}
             </h4>
             <ul className="space-y-2">
               {footerLinks.noiDung.map((link, index) => (
                 <li key={index}>
                   <AppLink
-                    title={link.title}
+                    title={t(dataI18n[link.title])}
                     onClick={() => scrollIntoView(link.href)}
                   />
                 </li>
@@ -89,12 +92,14 @@ export default function Footer() {
 
           {/* Điều khoản */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-orange-500">Policy</h4>
+            <h4 className="text-lg font-semibold text-orange-500">
+              {t(dataI18n.policy)}
+            </h4>
             <ul className="space-y-2">
               {footerLinks.dieuKhoan.map((link, index) => (
                 <li key={index}>
                   <AppLink
-                    title={link.title}
+                    title={t(dataI18n[link.title])}
                     onClick={() => {
                       window.location.href = link.href;
                     }}
@@ -106,7 +111,9 @@ export default function Footer() {
 
           {/* Liên hệ */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-orange-500">Contact</h4>
+            <h4 className="text-lg font-semibold text-orange-500">
+              {t(dataI18n.contact)}
+            </h4>
             <div className="space-y-3">
               {footerLinks.lienHe.map((link, index) => (
                 <AppLink
@@ -131,7 +138,7 @@ export default function Footer() {
               {footerLinks.dieuKhoan.map((link, index) => (
                 <AppLink
                   key={index}
-                  title={link.title}
+                  title={t(dataI18n[link.title])}
                   onClick={() => {
                     window.location.href = link.href;
                   }}

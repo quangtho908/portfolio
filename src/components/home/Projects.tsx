@@ -7,7 +7,9 @@ import AppButton from "@/components/common/AppButton";
 import IconButton from "@/components/common/IconButton";
 import CardProject from "@/components/projects/CardProject";
 import { useLanguage } from "@/context/LanguageContext";
+import useTranslation from "@/hooks/useTranslation";
 import type { Home, Project } from "@/payload-types";
+import dataI18n from "@/utils/i18n";
 import type { PayLoadData } from "@/utils/payloadUtil";
 
 type Props = {
@@ -18,6 +20,7 @@ export default function Projects({ data }: Props) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [windowWidth, setWindowWidth] = useState(0);
   const { language } = useLanguage();
+  const { t } = useTranslation();
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     handleResize();
@@ -33,8 +36,7 @@ export default function Projects({ data }: Props) {
 
   const itemsPerSlide = getItemsPerSlide();
   const totalSlides = Math.ceil(
-    (((data?.[language].projects || []) as Project[]).length || 0) /
-      itemsPerSlide
+    ((data?.[language].projects.projects || []).length || 0) / itemsPerSlide
   );
 
   const nextSlide = () => {
@@ -70,7 +72,7 @@ export default function Projects({ data }: Props) {
             onClick={() => {
               window.location.href = "/projects";
             }}
-            title={"View all projects"}
+            title={t(dataI18n.viewAllProjects)}
           />
         </div>
 
@@ -83,34 +85,36 @@ export default function Projects({ data }: Props) {
           </div>
 
           {/* Navigation Arrows */}
-          <div className="flex items-center justify-center space-x-4">
-            <IconButton
-              icon={<ChevronLeft className="h-5 w-5" />}
-              onClick={prevSlide}
-              disabled={currentSlide === 0}
-            />
+          {totalSlides > 1 && (
+            <div className="flex items-center justify-center space-x-4">
+              <IconButton
+                icon={<ChevronLeft className="h-5 w-5" />}
+                onClick={prevSlide}
+                disabled={currentSlide === 0}
+              />
 
-            {/* Slide Indicators */}
-            <div className="flex space-x-2">
-              {Array.from({ length: totalSlides }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`h-3 w-3 cursor-pointer rounded-full transition-all duration-300 ${
-                    currentSlide === index
-                      ? "bg-primary-500 scale-125"
-                      : "bg-tapa-300 hover:bg-tapa-400"
-                  }`}
-                />
-              ))}
+              {/* Slide Indicators */}
+              <div className="flex space-x-2">
+                {Array.from({ length: totalSlides }).map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`h-3 w-3 cursor-pointer rounded-full transition-all duration-300 ${
+                      currentSlide === index
+                        ? "bg-primary-500 scale-125"
+                        : "bg-tapa-300 hover:bg-tapa-400"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <IconButton
+                icon={<ChevronRight className="h-5 w-5" />}
+                onClick={nextSlide}
+                disabled={currentSlide === totalSlides - 1}
+              />
             </div>
-
-            <IconButton
-              icon={<ChevronRight className="h-5 w-5" />}
-              onClick={nextSlide}
-              disabled={currentSlide === totalSlides - 1}
-            />
-          </div>
+          )}
         </div>
       </div>
     </section>

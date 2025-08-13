@@ -4,7 +4,9 @@ import Image from "next/image";
 
 import AppButton from "@/components/common/AppButton";
 import { useLanguage } from "@/context/LanguageContext";
+import useTranslation from "@/hooks/useTranslation";
 import type { Home } from "@/payload-types";
+import dataI18n from "@/utils/i18n";
 import type { PayLoadData } from "@/utils/payloadUtil";
 
 export default function Hero({
@@ -13,6 +15,7 @@ export default function Hero({
   data: PayLoadData<Home> | undefined;
 }) {
   const { language } = useLanguage();
+  const { t } = useTranslation();
   return (
     <section className="px-6 pt-16 lg:pt-24">
       <div className="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
@@ -33,13 +36,13 @@ export default function Hero({
               onClick={() => {
                 window.location.href = "/projects";
               }}
-              title={"My projects"}
+              title={t(dataI18n.myProjects)}
             />
             <AppButton
               onClick={() => {
                 window.location.href = "/contact";
               }}
-              title={"Contact me"}
+              title={t(dataI18n.contact)}
               pattern={"outline"}
             />
           </div>

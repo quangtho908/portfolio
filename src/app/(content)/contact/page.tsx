@@ -1,8 +1,11 @@
+"use client";
+
 import { Mail } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
 import CardContact from "@/components/contact/CardContact";
+import useTranslation from "@/hooks/useTranslation";
 import type { Contact } from "@/utils/types/contact";
 
 const contactInfo: Contact[] = [
@@ -48,6 +51,7 @@ const contactInfo: Contact[] = [
 ];
 
 export default function ContactPage() {
+  const { t } = useTranslation();
   return (
     <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
       {/* Hero Section */}
@@ -59,10 +63,16 @@ export default function ContactPage() {
           </div>
         </div>
         <h1 className="mb-6 text-4xl font-bold text-gray-900 md:text-5xl">
-          Contact with me
+          {t({
+            en: "Contact with me",
+            vi: "Liên hệ với tôi",
+          })}
         </h1>
         <p className="mx-auto max-w-2xl text-xl text-gray-600">
-          I am always ready to help you, let connect with me
+          {t({
+            en: "I am always ready to help you, let connect with me",
+            vi: "Luôn luôn sẵn sàng hỗ trợ quý khách hàng",
+          })}
         </p>
       </div>
 

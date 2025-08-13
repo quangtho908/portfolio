@@ -15,8 +15,10 @@ import {
 import AppButton from "@/components/common/AppButton";
 import ImageSlider from "@/components/ProjectPreview/ImageSlider";
 import { useLanguage } from "@/context/LanguageContext";
-import type { Project } from "@/payload-types";
+import useTranslation from "@/hooks/useTranslation";
+import type { Category, Project } from "@/payload-types";
 import getImageUrl from "@/utils/getImageUrl";
+import dataI18n from "@/utils/i18n";
 import type { PayLoadData } from "@/utils/payloadUtil";
 
 type Props = {
@@ -25,15 +27,19 @@ type Props = {
 
 export default function ProjectDetail({ project }: Props) {
   const { language } = useLanguage();
+  const { t } = useTranslation();
   return (
     <div className="mx-auto max-w-6xl">
       {/* Header */}
       <div className="mb-12 text-center">
         <h1 className="mb-4 text-4xl font-bold text-gray-900">
-          Info Project {project?.[language].name}
+          {t(dataI18n.infoProject)} {project?.[language].name}
         </h1>
         <p className="text-lg text-gray-600">
-          Showcasing my development projects and achievements
+          {t({
+            en: "Showcasing my development projects and achievements",
+            vi: "Giới thiệu các dự án và thành tựu phát triển của tôi.",
+          })}
         </p>
       </div>
 
@@ -97,7 +103,7 @@ export default function ProjectDetail({ project }: Props) {
           <div className="mb-8">
             <h3 className="mb-4 flex items-center gap-2 text-xl font-semibold text-gray-900">
               <FolderOpen className="h-5 w-5" />
-              Features
+              {t(dataI18n.features)}
             </h3>
             <div className="flex flex-wrap gap-2">
               {(project?.[language].features || []).map(
@@ -120,7 +126,7 @@ export default function ProjectDetail({ project }: Props) {
           <div className="mb-8">
             <h3 className="mb-4 flex items-center gap-2 text-xl font-semibold text-gray-900">
               <Award className="h-5 w-5" />
-              Results
+              {t(dataI18n.results)}
             </h3>
             <div className="">
               {(project?.[language].results || []).map(
@@ -147,7 +153,7 @@ export default function ProjectDetail({ project }: Props) {
                 onClick={() => {
                   window.open(project?.[language].url || "", "_blank");
                 }}
-                title={"Visit Live Site"}
+                title={t(dataI18n.visitLiveSite)}
                 icon={<ExternalLink className="h-4 w-4" />}
                 className="flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-medium text-white transition-colors hover:bg-blue-700"
               />
@@ -161,16 +167,26 @@ export default function ProjectDetail({ project }: Props) {
       {/* Additional Info */}
       <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
         <div className="rounded-xl bg-white p-6 shadow-lg">
-          <h3 className="mb-2 font-semibold text-gray-900">Project Type</h3>
-          <p className="text-gray-600">Business Website</p>
+          <h3 className="mb-2 font-semibold text-gray-900">
+            {t(dataI18n.category)}
+          </h3>
+          <p className="text-gray-600">
+            {(project?.[language].category as Category).name}
+          </p>
         </div>
         <div className="rounded-xl bg-white p-6 shadow-lg">
-          <h3 className="mb-2 font-semibold text-gray-900">Development Time</h3>
+          <h3 className="mb-2 font-semibold text-gray-900">
+            {t(dataI18n.developmentTime)}
+          </h3>
           <p className="text-gray-600">2024</p>
         </div>
         <div className="rounded-xl bg-white p-6 shadow-lg">
-          <h3 className="mb-2 font-semibold text-gray-900">Status</h3>
-          <p className="font-medium text-green-600">Live & Optimized</p>
+          <h3 className="mb-2 font-semibold text-gray-900">
+            {t(dataI18n.status)}
+          </h3>
+          <p className="font-medium text-green-600">
+            {t(dataI18n.liveNOptimize)}
+          </p>
         </div>
       </div>
     </div>

@@ -8,27 +8,19 @@ import { useState } from "react";
 
 import SwitchLanguageBtn from "@/components/i18n/SwitchLanguageBtn";
 import useTranslation from "@/hooks/useTranslation";
+import dataI18n from "@/utils/i18n";
 
 const routes = [
   {
-    title: {
-      en: "Home",
-      vi: "Trang chủ",
-    },
+    title: "home",
     router: "/",
   },
   {
-    title: {
-      en: "Projects",
-      vi: "Dự án",
-    },
+    title: "projects",
     router: "/projects",
   },
   {
-    title: {
-      en: "Contact",
-      vi: "Liên hệ",
-    },
+    title: "contact",
     router: "/contact",
   },
 ];
@@ -71,26 +63,29 @@ export default function Header() {
                 } 
                transition-colors`}
             >
-              {t(route.title)}
+              {t(dataI18n[route.title])}
             </Link>
           ))}
         </div>
-        <div>
+        <div className="hidden md:block">
           <SwitchLanguageBtn />
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          onClick={toggleMobileMenu}
-          className="rounded-lg p-2 transition-colors duration-300 hover:bg-gray-100 md:hidden"
-          aria-label="Toggle mobile menu"
-        >
-          {isMobileMenuOpen ? (
-            <X className="h-6 w-6 text-gray-600" />
-          ) : (
-            <Menu className="h-6 w-6 text-gray-600" />
-          )}
-        </button>
+        <div className="flex items-center space-x-2 md:hidden">
+          <SwitchLanguageBtn />
+          <button
+            onClick={toggleMobileMenu}
+            className="rounded-lg p-2 transition-colors duration-300 hover:bg-gray-100"
+            aria-label="Toggle mobile menu"
+          >
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6 text-gray-600" />
+            ) : (
+              <Menu className="h-6 w-6 text-gray-600" />
+            )}
+          </button>
+        </div>
       </header>
       {/* Responsive menu */}
       <div
@@ -126,7 +121,7 @@ export default function Header() {
               onClick={closeMobileMenu}
               className="rounded-lg px-4 py-3 text-lg font-medium text-gray-700 transition-all duration-300 hover:bg-orange-50 hover:text-orange-500"
             >
-              {t(route.title)}
+              {t(dataI18n[route.title])}
             </a>
           ))}
         </nav>
