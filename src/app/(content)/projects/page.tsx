@@ -1,6 +1,9 @@
-import ListFolders from "@/component/projects/ListFolders";
-import ListProject from "@/component/projects/ListProject";
-import {Metadata} from "next";
+import type { Metadata } from "next";
+
+import ListCategories from "@/components/projects/ListCategories";
+import ListProject from "@/components/projects/ListProject";
+import type { Category } from "@/payload-types";
+import fetchCollectionData from "@/utils/collection_data";
 
 export const metadata: Metadata = {
   title: "STEVDEV | Projects",
@@ -9,24 +12,17 @@ export const metadata: Metadata = {
   design to robust backend development, we deliver tailored digital experiences 
   that drive real results. Let us help you turn your ideas into powerful digital 
   products that exceed expectations.`,
-}
+};
 
-export default async function ProjectsPage () {
+export const revalidate = 300;
 
-  let folders = []
-  try {
-    const res = await fetch(`${process.env.NEXT_SERVER_HOST}/api/folders`)
-    const data = await res.json();
-    folders = data.folders
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch (error) {
-
-  }
+export default async function ProjectsPage() {
+  const categories = await fetchCollectionData<Category>("categories");
 
   return (
     <div>
-      <ListFolders folders={folders} />
+      <ListCategories categories={categories} />
       <ListProject />
     </div>
-  )
+  );
 }

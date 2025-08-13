@@ -1,10 +1,5 @@
-'use client'
-import Content from "@/mdx/privacy-policy.mdx";
+"use client";
 
 export default function PrivacyPolicyPage() {
-  return (
-    <div className="max-w-7xl mx-auto px-6 py-4 space-y-6 prose">
-      <Content/>
-    </div>
-  )
+  return <div className="prose mx-auto max-w-7xl space-y-6 px-6 py-4"></div>;
 }

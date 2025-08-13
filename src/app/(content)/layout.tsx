@@ -1,16 +1,19 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "../globals.css";
-import Header from "@/component/frame/Header";
-import Footer from "@/component/frame/Footer";
+import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+import type { Metadata } from "next";
+import { Roboto, Roboto_Mono } from "next/font/google";
+
+import Footer from "@/components/frame/Footer";
+import Header from "@/components/frame/Header";
+import { LanguageProvider } from "@/context/LanguageContext";
+
+const geistSans = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const geistMono = Roboto_Mono({
+  variable: "--font-roboto-mono",
   subsets: ["latin"],
 });
 
@@ -27,12 +30,10 @@ export const metadata: Metadata = {
       {
         url: "/icons/icon.png",
         type: "image/png",
-      }
+      },
     ],
-    apple: [
-      { url: "/icons/apple-icon.png" }
-    ]
-  }
+    apple: [{ url: "/icons/apple-icon.png" }],
+  },
 };
 
 export default function RootLayout({
@@ -42,13 +43,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable}`}
-      >
-        <Header />
-        {children}
-        <Footer />
-      </body>
+      <LanguageProvider>
+        <body className={`${geistSans.variable} ${geistMono.variable}`}>
+          <Header />
+          {children}
+          <Footer />
+        </body>
+      </LanguageProvider>
     </html>
   );
 }

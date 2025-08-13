@@ -1,8 +1,8 @@
-import type * as types from './types';
-import type { ConfigOptions, FetchResponse } from 'api/dist/core'
-import Oas from 'oas';
-import APICore from 'api/dist/core';
-import definition from './openapi.json';
+import type * as types from "./types";
+import type { ConfigOptions, FetchResponse } from "api/dist/core";
+import Oas from "oas";
+import APICore from "api/dist/core";
+import definition from "./openapi.json";
 
 class SDK {
   spec: Oas;
@@ -10,7 +10,7 @@ class SDK {
 
   constructor() {
     this.spec = Oas.init(definition);
-    this.core = new APICore(this.spec, 'clickup/2.0 (api/6.1.3)');
+    this.core = new APICore(this.spec, "clickup/2.0 (api/6.1.3)");
   }
 
   /**
@@ -81,8 +81,16 @@ class SDK {
    *
    * @summary Create Task Attachment
    */
-  createTaskAttachment(body: types.CreateTaskAttachmentBodyParam, metadata: types.CreateTaskAttachmentMetadataParam): Promise<FetchResponse<200, types.CreateTaskAttachmentResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/attachment', 'post', body, metadata);
+  createTaskAttachment(
+    body: types.CreateTaskAttachmentBodyParam,
+    metadata: types.CreateTaskAttachmentMetadataParam
+  ): Promise<FetchResponse<200, types.CreateTaskAttachmentResponse200>> {
+    return this.core.fetch(
+      "/v2/task/{task_id}/attachment",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -97,8 +105,10 @@ class SDK {
    *
    * @summary Get Access Token
    */
-  getAccessToken(body: types.GetAccessTokenBodyParam): Promise<FetchResponse<200, types.GetAccessTokenResponse200>> {
-    return this.core.fetch('/v2/oauth/token', 'post', body);
+  getAccessToken(
+    body: types.GetAccessTokenBodyParam
+  ): Promise<FetchResponse<200, types.GetAccessTokenResponse200>> {
+    return this.core.fetch("/v2/oauth/token", "post", body);
   }
 
   /**
@@ -106,8 +116,10 @@ class SDK {
    *
    * @summary Get Authorized User
    */
-  getAuthorizedUser(): Promise<FetchResponse<200, types.GetAuthorizedUserResponse200>> {
-    return this.core.fetch('/v2/user', 'get');
+  getAuthorizedUser(): Promise<
+    FetchResponse<200, types.GetAuthorizedUserResponse200>
+  > {
+    return this.core.fetch("/v2/user", "get");
   }
 
   /**
@@ -115,8 +127,10 @@ class SDK {
    *
    * @summary Get Authorized Workspaces
    */
-  getAuthorizedTeams(): Promise<FetchResponse<200, types.GetAuthorizedTeamsResponse200>> {
-    return this.core.fetch('/v2/team', 'get');
+  getAuthorizedTeams(): Promise<
+    FetchResponse<200, types.GetAuthorizedTeamsResponse200>
+  > {
+    return this.core.fetch("/v2/team", "get");
   }
 
   /**
@@ -124,8 +138,16 @@ class SDK {
    *
    * @summary Create Checklist
    */
-  createChecklist(body: types.CreateChecklistBodyParam, metadata: types.CreateChecklistMetadataParam): Promise<FetchResponse<200, types.CreateChecklistResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/checklist', 'post', body, metadata);
+  createChecklist(
+    body: types.CreateChecklistBodyParam,
+    metadata: types.CreateChecklistMetadataParam
+  ): Promise<FetchResponse<200, types.CreateChecklistResponse200>> {
+    return this.core.fetch(
+      "/v2/task/{task_id}/checklist",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -134,8 +156,16 @@ class SDK {
    *
    * @summary Edit Checklist
    */
-  editChecklist(body: types.EditChecklistBodyParam, metadata: types.EditChecklistMetadataParam): Promise<FetchResponse<200, types.EditChecklistResponse200>> {
-    return this.core.fetch('/v2/checklist/{checklist_id}', 'put', body, metadata);
+  editChecklist(
+    body: types.EditChecklistBodyParam,
+    metadata: types.EditChecklistMetadataParam
+  ): Promise<FetchResponse<200, types.EditChecklistResponse200>> {
+    return this.core.fetch(
+      "/v2/checklist/{checklist_id}",
+      "put",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -143,8 +173,10 @@ class SDK {
    *
    * @summary Delete Checklist
    */
-  deleteChecklist(metadata: types.DeleteChecklistMetadataParam): Promise<FetchResponse<200, types.DeleteChecklistResponse200>> {
-    return this.core.fetch('/v2/checklist/{checklist_id}', 'delete', metadata);
+  deleteChecklist(
+    metadata: types.DeleteChecklistMetadataParam
+  ): Promise<FetchResponse<200, types.DeleteChecklistResponse200>> {
+    return this.core.fetch("/v2/checklist/{checklist_id}", "delete", metadata);
   }
 
   /**
@@ -152,8 +184,16 @@ class SDK {
    *
    * @summary Create Checklist Item
    */
-  createChecklistItem(body: types.CreateChecklistItemBodyParam, metadata: types.CreateChecklistItemMetadataParam): Promise<FetchResponse<200, types.CreateChecklistItemResponse200>> {
-    return this.core.fetch('/v2/checklist/{checklist_id}/checklist_item', 'post', body, metadata);
+  createChecklistItem(
+    body: types.CreateChecklistItemBodyParam,
+    metadata: types.CreateChecklistItemMetadataParam
+  ): Promise<FetchResponse<200, types.CreateChecklistItemResponse200>> {
+    return this.core.fetch(
+      "/v2/checklist/{checklist_id}/checklist_item",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -164,8 +204,16 @@ class SDK {
    *
    * @summary Edit Checklist Item
    */
-  editChecklistItem(body: types.EditChecklistItemBodyParam, metadata: types.EditChecklistItemMetadataParam): Promise<FetchResponse<200, types.EditChecklistItemResponse200>> {
-    return this.core.fetch('/v2/checklist/{checklist_id}/checklist_item/{checklist_item_id}', 'put', body, metadata);
+  editChecklistItem(
+    body: types.EditChecklistItemBodyParam,
+    metadata: types.EditChecklistItemMetadataParam
+  ): Promise<FetchResponse<200, types.EditChecklistItemResponse200>> {
+    return this.core.fetch(
+      "/v2/checklist/{checklist_id}/checklist_item/{checklist_item_id}",
+      "put",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -173,8 +221,14 @@ class SDK {
    *
    * @summary Delete Checklist Item
    */
-  deleteChecklistItem(metadata: types.DeleteChecklistItemMetadataParam): Promise<FetchResponse<200, types.DeleteChecklistItemResponse200>> {
-    return this.core.fetch('/v2/checklist/{checklist_id}/checklist_item/{checklist_item_id}', 'delete', metadata);
+  deleteChecklistItem(
+    metadata: types.DeleteChecklistItemMetadataParam
+  ): Promise<FetchResponse<200, types.DeleteChecklistItemResponse200>> {
+    return this.core.fetch(
+      "/v2/checklist/{checklist_id}/checklist_item/{checklist_item_id}",
+      "delete",
+      metadata
+    );
   }
 
   /**
@@ -188,8 +242,10 @@ class SDK {
    *
    * @summary Get Task Comments
    */
-  getTaskComments(metadata: types.GetTaskCommentsMetadataParam): Promise<FetchResponse<200, types.GetTaskCommentsResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/comment', 'get', metadata);
+  getTaskComments(
+    metadata: types.GetTaskCommentsMetadataParam
+  ): Promise<FetchResponse<200, types.GetTaskCommentsResponse200>> {
+    return this.core.fetch("/v2/task/{task_id}/comment", "get", metadata);
   }
 
   /**
@@ -197,8 +253,16 @@ class SDK {
    *
    * @summary Create Task Comment
    */
-  createTaskComment(body: types.CreateTaskCommentBodyParam, metadata: types.CreateTaskCommentMetadataParam): Promise<FetchResponse<200, types.CreateTaskCommentResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/comment', 'post', body, metadata);
+  createTaskComment(
+    body: types.CreateTaskCommentBodyParam,
+    metadata: types.CreateTaskCommentMetadataParam
+  ): Promise<FetchResponse<200, types.CreateTaskCommentResponse200>> {
+    return this.core.fetch(
+      "/v2/task/{task_id}/comment",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -212,8 +276,10 @@ class SDK {
    *
    * @summary Get Chat View Comments
    */
-  getChatViewComments(metadata: types.GetChatViewCommentsMetadataParam): Promise<FetchResponse<200, types.GetChatViewCommentsResponse200>> {
-    return this.core.fetch('/v2/view/{view_id}/comment', 'get', metadata);
+  getChatViewComments(
+    metadata: types.GetChatViewCommentsMetadataParam
+  ): Promise<FetchResponse<200, types.GetChatViewCommentsResponse200>> {
+    return this.core.fetch("/v2/view/{view_id}/comment", "get", metadata);
   }
 
   /**
@@ -221,8 +287,16 @@ class SDK {
    *
    * @summary Create Chat View Comment
    */
-  createChatViewComment(body: types.CreateChatViewCommentBodyParam, metadata: types.CreateChatViewCommentMetadataParam): Promise<FetchResponse<200, types.CreateChatViewCommentResponse200>> {
-    return this.core.fetch('/v2/view/{view_id}/comment', 'post', body, metadata);
+  createChatViewComment(
+    body: types.CreateChatViewCommentBodyParam,
+    metadata: types.CreateChatViewCommentMetadataParam
+  ): Promise<FetchResponse<200, types.CreateChatViewCommentResponse200>> {
+    return this.core.fetch(
+      "/v2/view/{view_id}/comment",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -236,8 +310,10 @@ class SDK {
    *
    * @summary Get List Comments
    */
-  getListComments(metadata: types.GetListCommentsMetadataParam): Promise<FetchResponse<200, types.GetListCommentsResponse200>> {
-    return this.core.fetch('/v2/list/{list_id}/comment', 'get', metadata);
+  getListComments(
+    metadata: types.GetListCommentsMetadataParam
+  ): Promise<FetchResponse<200, types.GetListCommentsResponse200>> {
+    return this.core.fetch("/v2/list/{list_id}/comment", "get", metadata);
   }
 
   /**
@@ -245,8 +321,16 @@ class SDK {
    *
    * @summary Create List Comment
    */
-  createListComment(body: types.CreateListCommentBodyParam, metadata: types.CreateListCommentMetadataParam): Promise<FetchResponse<200, types.CreateListCommentResponse200>> {
-    return this.core.fetch('/v2/list/{list_id}/comment', 'post', body, metadata);
+  createListComment(
+    body: types.CreateListCommentBodyParam,
+    metadata: types.CreateListCommentMetadataParam
+  ): Promise<FetchResponse<200, types.CreateListCommentResponse200>> {
+    return this.core.fetch(
+      "/v2/list/{list_id}/comment",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -255,8 +339,11 @@ class SDK {
    *
    * @summary Update Comment
    */
-  updateComment(body: types.UpdateCommentBodyParam, metadata: types.UpdateCommentMetadataParam): Promise<FetchResponse<200, types.UpdateCommentResponse200>> {
-    return this.core.fetch('/v2/comment/{comment_id}', 'put', body, metadata);
+  updateComment(
+    body: types.UpdateCommentBodyParam,
+    metadata: types.UpdateCommentMetadataParam
+  ): Promise<FetchResponse<200, types.UpdateCommentResponse200>> {
+    return this.core.fetch("/v2/comment/{comment_id}", "put", body, metadata);
   }
 
   /**
@@ -264,8 +351,10 @@ class SDK {
    *
    * @summary Delete Comment
    */
-  deleteComment(metadata: types.DeleteCommentMetadataParam): Promise<FetchResponse<200, types.DeleteCommentResponse200>> {
-    return this.core.fetch('/v2/comment/{comment_id}', 'delete', metadata);
+  deleteComment(
+    metadata: types.DeleteCommentMetadataParam
+  ): Promise<FetchResponse<200, types.DeleteCommentResponse200>> {
+    return this.core.fetch("/v2/comment/{comment_id}", "delete", metadata);
   }
 
   /**
@@ -273,8 +362,10 @@ class SDK {
    *
    * @summary Get Threaded Comments
    */
-  getThreadedComments(metadata: types.GetThreadedCommentsMetadataParam): Promise<FetchResponse<200, types.GetThreadedCommentsResponse200>> {
-    return this.core.fetch('/v2/comment/{comment_id}/reply', 'get', metadata);
+  getThreadedComments(
+    metadata: types.GetThreadedCommentsMetadataParam
+  ): Promise<FetchResponse<200, types.GetThreadedCommentsResponse200>> {
+    return this.core.fetch("/v2/comment/{comment_id}/reply", "get", metadata);
   }
 
   /**
@@ -282,8 +373,16 @@ class SDK {
    *
    * @summary Create Threaded Comment
    */
-  createThreadedComment(body: types.CreateThreadedCommentBodyParam, metadata: types.CreateThreadedCommentMetadataParam): Promise<FetchResponse<200, types.CreateThreadedCommentResponse200>> {
-    return this.core.fetch('/v2/comment/{comment_id}/reply', 'post', body, metadata);
+  createThreadedComment(
+    body: types.CreateThreadedCommentBodyParam,
+    metadata: types.CreateThreadedCommentMetadataParam
+  ): Promise<FetchResponse<200, types.CreateThreadedCommentResponse200>> {
+    return this.core.fetch(
+      "/v2/comment/{comment_id}/reply",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -291,8 +390,10 @@ class SDK {
    *
    * @summary Get List Custom Fields
    */
-  getAccessibleCustomFields(metadata: types.GetAccessibleCustomFieldsMetadataParam): Promise<FetchResponse<200, types.GetAccessibleCustomFieldsResponse200>> {
-    return this.core.fetch('/v2/list/{list_id}/field', 'get', metadata);
+  getAccessibleCustomFields(
+    metadata: types.GetAccessibleCustomFieldsMetadataParam
+  ): Promise<FetchResponse<200, types.GetAccessibleCustomFieldsResponse200>> {
+    return this.core.fetch("/v2/list/{list_id}/field", "get", metadata);
   }
 
   /**
@@ -302,8 +403,10 @@ class SDK {
    *
    * @summary Get Folder Custom Fields
    */
-  getFolderAvailableFields(metadata: types.GetFolderAvailableFieldsMetadataParam): Promise<FetchResponse<200, types.GetFolderAvailableFieldsResponse200>> {
-    return this.core.fetch('/v2/folder/{folder_id}/field', 'get', metadata);
+  getFolderAvailableFields(
+    metadata: types.GetFolderAvailableFieldsMetadataParam
+  ): Promise<FetchResponse<200, types.GetFolderAvailableFieldsResponse200>> {
+    return this.core.fetch("/v2/folder/{folder_id}/field", "get", metadata);
   }
 
   /**
@@ -313,8 +416,10 @@ class SDK {
    *
    * @summary Get Space Custom Fields
    */
-  getSpaceAvailableFields(metadata: types.GetSpaceAvailableFieldsMetadataParam): Promise<FetchResponse<200, types.GetSpaceAvailableFieldsResponse200>> {
-    return this.core.fetch('/v2/space/{space_id}/field', 'get', metadata);
+  getSpaceAvailableFields(
+    metadata: types.GetSpaceAvailableFieldsMetadataParam
+  ): Promise<FetchResponse<200, types.GetSpaceAvailableFieldsResponse200>> {
+    return this.core.fetch("/v2/space/{space_id}/field", "get", metadata);
   }
 
   /**
@@ -324,8 +429,10 @@ class SDK {
    *
    * @summary Get Workspace Custom Fields
    */
-  getTeamAvailableFields(metadata: types.GetTeamAvailableFieldsMetadataParam): Promise<FetchResponse<200, types.GetTeamAvailableFieldsResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/field', 'get', metadata);
+  getTeamAvailableFields(
+    metadata: types.GetTeamAvailableFieldsMetadataParam
+  ): Promise<FetchResponse<200, types.GetTeamAvailableFieldsResponse200>> {
+    return this.core.fetch("/v2/team/{team_id}/field", "get", metadata);
   }
 
   /**
@@ -339,8 +446,16 @@ class SDK {
    *
    * @summary Set Custom Field Value
    */
-  setCustomFieldValue(body: types.SetCustomFieldValueBodyParam, metadata: types.SetCustomFieldValueMetadataParam): Promise<FetchResponse<200, types.SetCustomFieldValueResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/field/{field_id}', 'post', body, metadata);
+  setCustomFieldValue(
+    body: types.SetCustomFieldValueBodyParam,
+    metadata: types.SetCustomFieldValueMetadataParam
+  ): Promise<FetchResponse<200, types.SetCustomFieldValueResponse200>> {
+    return this.core.fetch(
+      "/v2/task/{task_id}/field/{field_id}",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -349,8 +464,14 @@ class SDK {
    *
    * @summary Remove Custom Field Value
    */
-  removeCustomFieldValue(metadata: types.RemoveCustomFieldValueMetadataParam): Promise<FetchResponse<200, types.RemoveCustomFieldValueResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/field/{field_id}', 'delete', metadata);
+  removeCustomFieldValue(
+    metadata: types.RemoveCustomFieldValueMetadataParam
+  ): Promise<FetchResponse<200, types.RemoveCustomFieldValueResponse200>> {
+    return this.core.fetch(
+      "/v2/task/{task_id}/field/{field_id}",
+      "delete",
+      metadata
+    );
   }
 
   /**
@@ -358,8 +479,16 @@ class SDK {
    *
    * @summary Add Dependency
    */
-  addDependency(body: types.AddDependencyBodyParam, metadata: types.AddDependencyMetadataParam): Promise<FetchResponse<200, types.AddDependencyResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/dependency', 'post', body, metadata);
+  addDependency(
+    body: types.AddDependencyBodyParam,
+    metadata: types.AddDependencyMetadataParam
+  ): Promise<FetchResponse<200, types.AddDependencyResponse200>> {
+    return this.core.fetch(
+      "/v2/task/{task_id}/dependency",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -367,19 +496,27 @@ class SDK {
    *
    * @summary Delete Dependency
    */
-  deleteDependency(metadata: types.DeleteDependencyMetadataParam): Promise<FetchResponse<200, types.DeleteDependencyResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/dependency', 'delete', metadata);
+  deleteDependency(
+    metadata: types.DeleteDependencyMetadataParam
+  ): Promise<FetchResponse<200, types.DeleteDependencyResponse200>> {
+    return this.core.fetch("/v2/task/{task_id}/dependency", "delete", metadata);
   }
 
   /**
-   * This is the equivalent of the feature _Task Links_ in the right-hand sidebar of a Task. 
+   * This is the equivalent of the feature _Task Links_ in the right-hand sidebar of a Task.
    * It allows you to link two tasks together. General links or links to other objects than
    * tasks are not supported.
    *
    * @summary Add Task Link
    */
-  addTaskLink(metadata: types.AddTaskLinkMetadataParam): Promise<FetchResponse<200, types.AddTaskLinkResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/link/{links_to}', 'post', metadata);
+  addTaskLink(
+    metadata: types.AddTaskLinkMetadataParam
+  ): Promise<FetchResponse<200, types.AddTaskLinkResponse200>> {
+    return this.core.fetch(
+      "/v2/task/{task_id}/link/{links_to}",
+      "post",
+      metadata
+    );
   }
 
   /**
@@ -387,8 +524,14 @@ class SDK {
    *
    * @summary Delete Task Link
    */
-  deleteTaskLink(metadata: types.DeleteTaskLinkMetadataParam): Promise<FetchResponse<200, types.DeleteTaskLinkResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/link/{links_to}', 'delete', metadata);
+  deleteTaskLink(
+    metadata: types.DeleteTaskLinkMetadataParam
+  ): Promise<FetchResponse<200, types.DeleteTaskLinkResponse200>> {
+    return this.core.fetch(
+      "/v2/task/{task_id}/link/{links_to}",
+      "delete",
+      metadata
+    );
   }
 
   /**
@@ -396,8 +539,10 @@ class SDK {
    *
    * @summary Get Folders
    */
-  getFolders(metadata: types.GetFoldersMetadataParam): Promise<FetchResponse<200, types.GetFoldersResponse200>> {
-    return this.core.fetch('/v2/space/{space_id}/folder', 'get', metadata);
+  getFolders(
+    metadata: types.GetFoldersMetadataParam
+  ): Promise<FetchResponse<200, types.GetFoldersResponse200>> {
+    return this.core.fetch("/v2/space/{space_id}/folder", "get", metadata);
   }
 
   /**
@@ -405,8 +550,16 @@ class SDK {
    *
    * @summary Create Folder
    */
-  createFolder(body: types.CreateFolderBodyParam, metadata: types.CreateFolderMetadataParam): Promise<FetchResponse<200, types.CreateFolderResponse200>> {
-    return this.core.fetch('/v2/space/{space_id}/folder', 'post', body, metadata);
+  createFolder(
+    body: types.CreateFolderBodyParam,
+    metadata: types.CreateFolderMetadataParam
+  ): Promise<FetchResponse<200, types.CreateFolderResponse200>> {
+    return this.core.fetch(
+      "/v2/space/{space_id}/folder",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -414,8 +567,10 @@ class SDK {
    *
    * @summary Get Folder
    */
-  getFolder(metadata: types.GetFolderMetadataParam): Promise<FetchResponse<200, types.GetFolderResponse200>> {
-    return this.core.fetch('/v2/folder/{folder_id}', 'get', metadata);
+  getFolder(
+    metadata: types.GetFolderMetadataParam
+  ): Promise<FetchResponse<200, types.GetFolderResponse200>> {
+    return this.core.fetch("/v2/folder/{folder_id}", "get", metadata);
   }
 
   /**
@@ -423,8 +578,11 @@ class SDK {
    *
    * @summary Update Folder
    */
-  updateFolder(body: types.UpdateFolderBodyParam, metadata: types.UpdateFolderMetadataParam): Promise<FetchResponse<200, types.UpdateFolderResponse200>> {
-    return this.core.fetch('/v2/folder/{folder_id}', 'put', body, metadata);
+  updateFolder(
+    body: types.UpdateFolderBodyParam,
+    metadata: types.UpdateFolderMetadataParam
+  ): Promise<FetchResponse<200, types.UpdateFolderResponse200>> {
+    return this.core.fetch("/v2/folder/{folder_id}", "put", body, metadata);
   }
 
   /**
@@ -432,8 +590,10 @@ class SDK {
    *
    * @summary Delete Folder
    */
-  deleteFolder(metadata: types.DeleteFolderMetadataParam): Promise<FetchResponse<200, types.DeleteFolderResponse200>> {
-    return this.core.fetch('/v2/folder/{folder_id}', 'delete', metadata);
+  deleteFolder(
+    metadata: types.DeleteFolderMetadataParam
+  ): Promise<FetchResponse<200, types.DeleteFolderResponse200>> {
+    return this.core.fetch("/v2/folder/{folder_id}", "delete", metadata);
   }
 
   /**
@@ -441,8 +601,10 @@ class SDK {
    *
    * @summary Get Goals
    */
-  getGoals(metadata: types.GetGoalsMetadataParam): Promise<FetchResponse<200, types.GetGoalsResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/goal', 'get', metadata);
+  getGoals(
+    metadata: types.GetGoalsMetadataParam
+  ): Promise<FetchResponse<200, types.GetGoalsResponse200>> {
+    return this.core.fetch("/v2/team/{team_id}/goal", "get", metadata);
   }
 
   /**
@@ -450,8 +612,11 @@ class SDK {
    *
    * @summary Create Goal
    */
-  createGoal(body: types.CreateGoalBodyParam, metadata: types.CreateGoalMetadataParam): Promise<FetchResponse<200, types.CreateGoalResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/goal', 'post', body, metadata);
+  createGoal(
+    body: types.CreateGoalBodyParam,
+    metadata: types.CreateGoalMetadataParam
+  ): Promise<FetchResponse<200, types.CreateGoalResponse200>> {
+    return this.core.fetch("/v2/team/{team_id}/goal", "post", body, metadata);
   }
 
   /**
@@ -459,8 +624,10 @@ class SDK {
    *
    * @summary Get Goal
    */
-  getGoal(metadata: types.GetGoalMetadataParam): Promise<FetchResponse<200, types.GetGoalResponse200>> {
-    return this.core.fetch('/v2/goal/{goal_id}', 'get', metadata);
+  getGoal(
+    metadata: types.GetGoalMetadataParam
+  ): Promise<FetchResponse<200, types.GetGoalResponse200>> {
+    return this.core.fetch("/v2/goal/{goal_id}", "get", metadata);
   }
 
   /**
@@ -469,8 +636,11 @@ class SDK {
    *
    * @summary Update Goal
    */
-  updateGoal(body: types.UpdateGoalBodyParam, metadata: types.UpdateGoalMetadataParam): Promise<FetchResponse<200, types.UpdateGoalResponse200>> {
-    return this.core.fetch('/v2/goal/{goal_id}', 'put', body, metadata);
+  updateGoal(
+    body: types.UpdateGoalBodyParam,
+    metadata: types.UpdateGoalMetadataParam
+  ): Promise<FetchResponse<200, types.UpdateGoalResponse200>> {
+    return this.core.fetch("/v2/goal/{goal_id}", "put", body, metadata);
   }
 
   /**
@@ -478,8 +648,10 @@ class SDK {
    *
    * @summary Delete Goal
    */
-  deleteGoal(metadata: types.DeleteGoalMetadataParam): Promise<FetchResponse<200, types.DeleteGoalResponse200>> {
-    return this.core.fetch('/v2/goal/{goal_id}', 'delete', metadata);
+  deleteGoal(
+    metadata: types.DeleteGoalMetadataParam
+  ): Promise<FetchResponse<200, types.DeleteGoalResponse200>> {
+    return this.core.fetch("/v2/goal/{goal_id}", "delete", metadata);
   }
 
   /**
@@ -487,8 +659,16 @@ class SDK {
    *
    * @summary Create Key Result
    */
-  createKeyResult(body: types.CreateKeyResultBodyParam, metadata: types.CreateKeyResultMetadataParam): Promise<FetchResponse<200, types.CreateKeyResultResponse200>> {
-    return this.core.fetch('/v2/goal/{goal_id}/key_result', 'post', body, metadata);
+  createKeyResult(
+    body: types.CreateKeyResultBodyParam,
+    metadata: types.CreateKeyResultMetadataParam
+  ): Promise<FetchResponse<200, types.CreateKeyResultResponse200>> {
+    return this.core.fetch(
+      "/v2/goal/{goal_id}/key_result",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -496,8 +676,16 @@ class SDK {
    *
    * @summary Edit Key Result
    */
-  editKeyResult(body: types.EditKeyResultBodyParam, metadata: types.EditKeyResultMetadataParam): Promise<FetchResponse<200, types.EditKeyResultResponse200>> {
-    return this.core.fetch('/v2/key_result/{key_result_id}', 'put', body, metadata);
+  editKeyResult(
+    body: types.EditKeyResultBodyParam,
+    metadata: types.EditKeyResultMetadataParam
+  ): Promise<FetchResponse<200, types.EditKeyResultResponse200>> {
+    return this.core.fetch(
+      "/v2/key_result/{key_result_id}",
+      "put",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -505,8 +693,14 @@ class SDK {
    *
    * @summary Delete Key Result
    */
-  deleteKeyResult(metadata: types.DeleteKeyResultMetadataParam): Promise<FetchResponse<200, types.DeleteKeyResultResponse200>> {
-    return this.core.fetch('/v2/key_result/{key_result_id}', 'delete', metadata);
+  deleteKeyResult(
+    metadata: types.DeleteKeyResultMetadataParam
+  ): Promise<FetchResponse<200, types.DeleteKeyResultResponse200>> {
+    return this.core.fetch(
+      "/v2/key_result/{key_result_id}",
+      "delete",
+      metadata
+    );
   }
 
   /**
@@ -522,8 +716,11 @@ class SDK {
    *
    * @summary Invite Guest To Workspace
    */
-  inviteGuestToWorkspace(body: types.InviteGuestToWorkspaceBodyParam, metadata: types.InviteGuestToWorkspaceMetadataParam): Promise<FetchResponse<200, types.InviteGuestToWorkspaceResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/guest', 'post', body, metadata);
+  inviteGuestToWorkspace(
+    body: types.InviteGuestToWorkspaceBodyParam,
+    metadata: types.InviteGuestToWorkspaceMetadataParam
+  ): Promise<FetchResponse<200, types.InviteGuestToWorkspaceResponse200>> {
+    return this.core.fetch("/v2/team/{team_id}/guest", "post", body, metadata);
   }
 
   /**
@@ -534,8 +731,14 @@ class SDK {
    *
    * @summary Get Guest
    */
-  getGuest(metadata: types.GetGuestMetadataParam): Promise<FetchResponse<200, types.GetGuestResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/guest/{guest_id}', 'get', metadata);
+  getGuest(
+    metadata: types.GetGuestMetadataParam
+  ): Promise<FetchResponse<200, types.GetGuestResponse200>> {
+    return this.core.fetch(
+      "/v2/team/{team_id}/guest/{guest_id}",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -546,10 +749,25 @@ class SDK {
    *
    * @summary Edit Guest On Workspace
    */
-  editGuestOnWorkspace(body: types.EditGuestOnWorkspaceBodyParam, metadata: types.EditGuestOnWorkspaceMetadataParam): Promise<FetchResponse<200, types.EditGuestOnWorkspaceResponse200>>;
-  editGuestOnWorkspace(metadata: types.EditGuestOnWorkspaceMetadataParam): Promise<FetchResponse<200, types.EditGuestOnWorkspaceResponse200>>;
-  editGuestOnWorkspace(body?: types.EditGuestOnWorkspaceBodyParam | types.EditGuestOnWorkspaceMetadataParam, metadata?: types.EditGuestOnWorkspaceMetadataParam): Promise<FetchResponse<200, types.EditGuestOnWorkspaceResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/guest/{guest_id}', 'put', body, metadata);
+  editGuestOnWorkspace(
+    body: types.EditGuestOnWorkspaceBodyParam,
+    metadata: types.EditGuestOnWorkspaceMetadataParam
+  ): Promise<FetchResponse<200, types.EditGuestOnWorkspaceResponse200>>;
+  editGuestOnWorkspace(
+    metadata: types.EditGuestOnWorkspaceMetadataParam
+  ): Promise<FetchResponse<200, types.EditGuestOnWorkspaceResponse200>>;
+  editGuestOnWorkspace(
+    body?:
+      | types.EditGuestOnWorkspaceBodyParam
+      | types.EditGuestOnWorkspaceMetadataParam,
+    metadata?: types.EditGuestOnWorkspaceMetadataParam
+  ): Promise<FetchResponse<200, types.EditGuestOnWorkspaceResponse200>> {
+    return this.core.fetch(
+      "/v2/team/{team_id}/guest/{guest_id}",
+      "put",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -560,8 +778,14 @@ class SDK {
    *
    * @summary Remove Guest From Workspace
    */
-  removeGuestFromWorkspace(metadata: types.RemoveGuestFromWorkspaceMetadataParam): Promise<FetchResponse<200, types.RemoveGuestFromWorkspaceResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/guest/{guest_id}', 'delete', metadata);
+  removeGuestFromWorkspace(
+    metadata: types.RemoveGuestFromWorkspaceMetadataParam
+  ): Promise<FetchResponse<200, types.RemoveGuestFromWorkspaceResponse200>> {
+    return this.core.fetch(
+      "/v2/team/{team_id}/guest/{guest_id}",
+      "delete",
+      metadata
+    );
   }
 
   /**
@@ -572,8 +796,16 @@ class SDK {
    *
    * @summary Add Guest To Task
    */
-  addGuestToTask(body: types.AddGuestToTaskBodyParam, metadata: types.AddGuestToTaskMetadataParam): Promise<FetchResponse<200, types.AddGuestToTaskResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/guest/{guest_id}', 'post', body, metadata);
+  addGuestToTask(
+    body: types.AddGuestToTaskBodyParam,
+    metadata: types.AddGuestToTaskMetadataParam
+  ): Promise<FetchResponse<200, types.AddGuestToTaskResponse200>> {
+    return this.core.fetch(
+      "/v2/task/{task_id}/guest/{guest_id}",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -584,8 +816,14 @@ class SDK {
    *
    * @summary Remove Guest From Task
    */
-  removeGuestFromTask(metadata: types.RemoveGuestFromTaskMetadataParam): Promise<FetchResponse<200, types.RemoveGuestFromTaskResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/guest/{guest_id}', 'delete', metadata);
+  removeGuestFromTask(
+    metadata: types.RemoveGuestFromTaskMetadataParam
+  ): Promise<FetchResponse<200, types.RemoveGuestFromTaskResponse200>> {
+    return this.core.fetch(
+      "/v2/task/{task_id}/guest/{guest_id}",
+      "delete",
+      metadata
+    );
   }
 
   /**
@@ -596,8 +834,16 @@ class SDK {
    *
    * @summary Add Guest To List
    */
-  addGuestToList(body: types.AddGuestToListBodyParam, metadata: types.AddGuestToListMetadataParam): Promise<FetchResponse<200, types.AddGuestToListResponse200>> {
-    return this.core.fetch('/v2/list/{list_id}/guest/{guest_id}', 'post', body, metadata);
+  addGuestToList(
+    body: types.AddGuestToListBodyParam,
+    metadata: types.AddGuestToListMetadataParam
+  ): Promise<FetchResponse<200, types.AddGuestToListResponse200>> {
+    return this.core.fetch(
+      "/v2/list/{list_id}/guest/{guest_id}",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -608,8 +854,14 @@ class SDK {
    *
    * @summary Remove Guest From List
    */
-  removeGuestFromList(metadata: types.RemoveGuestFromListMetadataParam): Promise<FetchResponse<200, types.RemoveGuestFromListResponse200>> {
-    return this.core.fetch('/v2/list/{list_id}/guest/{guest_id}', 'delete', metadata);
+  removeGuestFromList(
+    metadata: types.RemoveGuestFromListMetadataParam
+  ): Promise<FetchResponse<200, types.RemoveGuestFromListResponse200>> {
+    return this.core.fetch(
+      "/v2/list/{list_id}/guest/{guest_id}",
+      "delete",
+      metadata
+    );
   }
 
   /**
@@ -620,8 +872,16 @@ class SDK {
    *
    * @summary Add Guest To Folder
    */
-  addGuestToFolder(body: types.AddGuestToFolderBodyParam, metadata: types.AddGuestToFolderMetadataParam): Promise<FetchResponse<200, types.AddGuestToFolderResponse200>> {
-    return this.core.fetch('/v2/folder/{folder_id}/guest/{guest_id}', 'post', body, metadata);
+  addGuestToFolder(
+    body: types.AddGuestToFolderBodyParam,
+    metadata: types.AddGuestToFolderMetadataParam
+  ): Promise<FetchResponse<200, types.AddGuestToFolderResponse200>> {
+    return this.core.fetch(
+      "/v2/folder/{folder_id}/guest/{guest_id}",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -632,8 +892,14 @@ class SDK {
    *
    * @summary Remove Guest From Folder
    */
-  removeGuestFromFolder(metadata: types.RemoveGuestFromFolderMetadataParam): Promise<FetchResponse<200, types.RemoveGuestFromFolderResponse200>> {
-    return this.core.fetch('/v2/folder/{folder_id}/guest/{guest_id}', 'delete', metadata);
+  removeGuestFromFolder(
+    metadata: types.RemoveGuestFromFolderMetadataParam
+  ): Promise<FetchResponse<200, types.RemoveGuestFromFolderResponse200>> {
+    return this.core.fetch(
+      "/v2/folder/{folder_id}/guest/{guest_id}",
+      "delete",
+      metadata
+    );
   }
 
   /**
@@ -641,8 +907,10 @@ class SDK {
    *
    * @summary Get Lists
    */
-  getLists(metadata: types.GetListsMetadataParam): Promise<FetchResponse<200, types.GetListsResponse200>> {
-    return this.core.fetch('/v2/folder/{folder_id}/list', 'get', metadata);
+  getLists(
+    metadata: types.GetListsMetadataParam
+  ): Promise<FetchResponse<200, types.GetListsResponse200>> {
+    return this.core.fetch("/v2/folder/{folder_id}/list", "get", metadata);
   }
 
   /**
@@ -650,8 +918,16 @@ class SDK {
    *
    * @summary Create List
    */
-  createList(body: types.CreateListBodyParam, metadata: types.CreateListMetadataParam): Promise<FetchResponse<200, types.CreateListResponse200>> {
-    return this.core.fetch('/v2/folder/{folder_id}/list', 'post', body, metadata);
+  createList(
+    body: types.CreateListBodyParam,
+    metadata: types.CreateListMetadataParam
+  ): Promise<FetchResponse<200, types.CreateListResponse200>> {
+    return this.core.fetch(
+      "/v2/folder/{folder_id}/list",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -664,8 +940,16 @@ class SDK {
    * @summary Create Folder from template
    * @throws FetchError<400, types.CreateFolderFromTemplateResponse400> Bad request - Name is required
    */
-  createFolderFromTemplate(body: types.CreateFolderFromTemplateBodyParam, metadata: types.CreateFolderFromTemplateMetadataParam): Promise<FetchResponse<200, types.CreateFolderFromTemplateResponse200>> {
-    return this.core.fetch('/v2/space/{space_id}/folder_template/{template_id}', 'post', body, metadata);
+  createFolderFromTemplate(
+    body: types.CreateFolderFromTemplateBodyParam,
+    metadata: types.CreateFolderFromTemplateMetadataParam
+  ): Promise<FetchResponse<200, types.CreateFolderFromTemplateResponse200>> {
+    return this.core.fetch(
+      "/v2/space/{space_id}/folder_template/{template_id}",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -673,8 +957,10 @@ class SDK {
    *
    * @summary Get Folderless Lists
    */
-  getFolderlessLists(metadata: types.GetFolderlessListsMetadataParam): Promise<FetchResponse<200, types.GetFolderlessListsResponse200>> {
-    return this.core.fetch('/v2/space/{space_id}/list', 'get', metadata);
+  getFolderlessLists(
+    metadata: types.GetFolderlessListsMetadataParam
+  ): Promise<FetchResponse<200, types.GetFolderlessListsResponse200>> {
+    return this.core.fetch("/v2/space/{space_id}/list", "get", metadata);
   }
 
   /**
@@ -682,8 +968,11 @@ class SDK {
    *
    * @summary Create Folderless List
    */
-  createFolderlessList(body: types.CreateFolderlessListBodyParam, metadata: types.CreateFolderlessListMetadataParam): Promise<FetchResponse<200, types.CreateFolderlessListResponse200>> {
-    return this.core.fetch('/v2/space/{space_id}/list', 'post', body, metadata);
+  createFolderlessList(
+    body: types.CreateFolderlessListBodyParam,
+    metadata: types.CreateFolderlessListMetadataParam
+  ): Promise<FetchResponse<200, types.CreateFolderlessListResponse200>> {
+    return this.core.fetch("/v2/space/{space_id}/list", "post", body, metadata);
   }
 
   /**
@@ -691,8 +980,10 @@ class SDK {
    *
    * @summary Get List
    */
-  getList(metadata: types.GetListMetadataParam): Promise<FetchResponse<200, types.GetListResponse200>> {
-    return this.core.fetch('/v2/list/{list_id}', 'get', metadata);
+  getList(
+    metadata: types.GetListMetadataParam
+  ): Promise<FetchResponse<200, types.GetListResponse200>> {
+    return this.core.fetch("/v2/list/{list_id}", "get", metadata);
   }
 
   /**
@@ -701,8 +992,11 @@ class SDK {
    *
    * @summary Update List
    */
-  updateList(body: types.UpdateListBodyParam, metadata: types.UpdateListMetadataParam): Promise<FetchResponse<200, types.UpdateListResponse200>> {
-    return this.core.fetch('/v2/list/{list_id}', 'put', body, metadata);
+  updateList(
+    body: types.UpdateListBodyParam,
+    metadata: types.UpdateListMetadataParam
+  ): Promise<FetchResponse<200, types.UpdateListResponse200>> {
+    return this.core.fetch("/v2/list/{list_id}", "put", body, metadata);
   }
 
   /**
@@ -710,8 +1004,10 @@ class SDK {
    *
    * @summary Delete List
    */
-  deleteList(metadata: types.DeleteListMetadataParam): Promise<FetchResponse<200, types.DeleteListResponse200>> {
-    return this.core.fetch('/v2/list/{list_id}', 'delete', metadata);
+  deleteList(
+    metadata: types.DeleteListMetadataParam
+  ): Promise<FetchResponse<200, types.DeleteListResponse200>> {
+    return this.core.fetch("/v2/list/{list_id}", "delete", metadata);
   }
 
   /**
@@ -723,8 +1019,14 @@ class SDK {
    *
    * @summary Add Task To List
    */
-  addTaskToList(metadata: types.AddTaskToListMetadataParam): Promise<FetchResponse<200, types.AddTaskToListResponse200>> {
-    return this.core.fetch('/v2/list/{list_id}/task/{task_id}', 'post', metadata);
+  addTaskToList(
+    metadata: types.AddTaskToListMetadataParam
+  ): Promise<FetchResponse<200, types.AddTaskToListResponse200>> {
+    return this.core.fetch(
+      "/v2/list/{list_id}/task/{task_id}",
+      "post",
+      metadata
+    );
   }
 
   /**
@@ -736,8 +1038,14 @@ class SDK {
    *
    * @summary Remove Task From List
    */
-  removeTaskFromList(metadata: types.RemoveTaskFromListMetadataParam): Promise<FetchResponse<200, types.RemoveTaskFromListResponse200>> {
-    return this.core.fetch('/v2/list/{list_id}/task/{task_id}', 'delete', metadata);
+  removeTaskFromList(
+    metadata: types.RemoveTaskFromListMetadataParam
+  ): Promise<FetchResponse<200, types.RemoveTaskFromListResponse200>> {
+    return this.core.fetch(
+      "/v2/list/{list_id}/task/{task_id}",
+      "delete",
+      metadata
+    );
   }
 
   /**
@@ -746,8 +1054,10 @@ class SDK {
    *
    * @summary Get Task Members
    */
-  getTaskMembers(metadata: types.GetTaskMembersMetadataParam): Promise<FetchResponse<200, types.GetTaskMembersResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/member', 'get', metadata);
+  getTaskMembers(
+    metadata: types.GetTaskMembersMetadataParam
+  ): Promise<FetchResponse<200, types.GetTaskMembersResponse200>> {
+    return this.core.fetch("/v2/task/{task_id}/member", "get", metadata);
   }
 
   /**
@@ -755,8 +1065,10 @@ class SDK {
    *
    * @summary Get List Members
    */
-  getListMembers(metadata: types.GetListMembersMetadataParam): Promise<FetchResponse<200, types.GetListMembersResponse200>> {
-    return this.core.fetch('/v2/list/{list_id}/member', 'get', metadata);
+  getListMembers(
+    metadata: types.GetListMembersMetadataParam
+  ): Promise<FetchResponse<200, types.GetListMembersResponse200>> {
+    return this.core.fetch("/v2/list/{list_id}/member", "get", metadata);
   }
 
   /**
@@ -764,8 +1076,10 @@ class SDK {
    *
    * @summary Get Custom Roles
    */
-  getCustomRoles(metadata: types.GetCustomRolesMetadataParam): Promise<FetchResponse<200, types.GetCustomRolesResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/customroles', 'get', metadata);
+  getCustomRoles(
+    metadata: types.GetCustomRolesMetadataParam
+  ): Promise<FetchResponse<200, types.GetCustomRolesResponse200>> {
+    return this.core.fetch("/v2/team/{team_id}/customroles", "get", metadata);
   }
 
   /**
@@ -773,8 +1087,10 @@ class SDK {
    *
    * @summary Shared Hierarchy
    */
-  sharedHierarchy(metadata: types.SharedHierarchyMetadataParam): Promise<FetchResponse<200, types.SharedHierarchyResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/shared', 'get', metadata);
+  sharedHierarchy(
+    metadata: types.SharedHierarchyMetadataParam
+  ): Promise<FetchResponse<200, types.SharedHierarchyResponse200>> {
+    return this.core.fetch("/v2/team/{team_id}/shared", "get", metadata);
   }
 
   /**
@@ -783,8 +1099,10 @@ class SDK {
    *
    * @summary Get Spaces
    */
-  getSpaces(metadata: types.GetSpacesMetadataParam): Promise<FetchResponse<200, types.GetSpacesResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/space', 'get', metadata);
+  getSpaces(
+    metadata: types.GetSpacesMetadataParam
+  ): Promise<FetchResponse<200, types.GetSpacesResponse200>> {
+    return this.core.fetch("/v2/team/{team_id}/space", "get", metadata);
   }
 
   /**
@@ -792,8 +1110,11 @@ class SDK {
    *
    * @summary Create Space
    */
-  createSpace(body: types.CreateSpaceBodyParam, metadata: types.CreateSpaceMetadataParam): Promise<FetchResponse<200, types.CreateSpaceResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/space', 'post', body, metadata);
+  createSpace(
+    body: types.CreateSpaceBodyParam,
+    metadata: types.CreateSpaceMetadataParam
+  ): Promise<FetchResponse<200, types.CreateSpaceResponse200>> {
+    return this.core.fetch("/v2/team/{team_id}/space", "post", body, metadata);
   }
 
   /**
@@ -801,8 +1122,10 @@ class SDK {
    *
    * @summary Get Space
    */
-  getSpace(metadata: types.GetSpaceMetadataParam): Promise<FetchResponse<200, types.GetSpaceResponse200>> {
-    return this.core.fetch('/v2/space/{space_id}', 'get', metadata);
+  getSpace(
+    metadata: types.GetSpaceMetadataParam
+  ): Promise<FetchResponse<200, types.GetSpaceResponse200>> {
+    return this.core.fetch("/v2/space/{space_id}", "get", metadata);
   }
 
   /**
@@ -810,8 +1133,11 @@ class SDK {
    *
    * @summary Update Space
    */
-  updateSpace(body: types.UpdateSpaceBodyParam, metadata: types.UpdateSpaceMetadataParam): Promise<FetchResponse<200, types.UpdateSpaceResponse200>> {
-    return this.core.fetch('/v2/space/{space_id}', 'put', body, metadata);
+  updateSpace(
+    body: types.UpdateSpaceBodyParam,
+    metadata: types.UpdateSpaceMetadataParam
+  ): Promise<FetchResponse<200, types.UpdateSpaceResponse200>> {
+    return this.core.fetch("/v2/space/{space_id}", "put", body, metadata);
   }
 
   /**
@@ -819,8 +1145,10 @@ class SDK {
    *
    * @summary Delete Space
    */
-  deleteSpace(metadata: types.DeleteSpaceMetadataParam): Promise<FetchResponse<200, types.DeleteSpaceResponse200>> {
-    return this.core.fetch('/v2/space/{space_id}', 'delete', metadata);
+  deleteSpace(
+    metadata: types.DeleteSpaceMetadataParam
+  ): Promise<FetchResponse<200, types.DeleteSpaceResponse200>> {
+    return this.core.fetch("/v2/space/{space_id}", "delete", metadata);
   }
 
   /**
@@ -828,8 +1156,10 @@ class SDK {
    *
    * @summary Get Space Tags
    */
-  getSpaceTags(metadata: types.GetSpaceTagsMetadataParam): Promise<FetchResponse<200, types.GetSpaceTagsResponse200>> {
-    return this.core.fetch('/v2/space/{space_id}/tag', 'get', metadata);
+  getSpaceTags(
+    metadata: types.GetSpaceTagsMetadataParam
+  ): Promise<FetchResponse<200, types.GetSpaceTagsResponse200>> {
+    return this.core.fetch("/v2/space/{space_id}/tag", "get", metadata);
   }
 
   /**
@@ -837,8 +1167,11 @@ class SDK {
    *
    * @summary Create Space Tag
    */
-  createSpaceTag(body: types.CreateSpaceTagBodyParam, metadata: types.CreateSpaceTagMetadataParam): Promise<FetchResponse<200, types.CreateSpaceTagResponse200>> {
-    return this.core.fetch('/v2/space/{space_id}/tag', 'post', body, metadata);
+  createSpaceTag(
+    body: types.CreateSpaceTagBodyParam,
+    metadata: types.CreateSpaceTagMetadataParam
+  ): Promise<FetchResponse<200, types.CreateSpaceTagResponse200>> {
+    return this.core.fetch("/v2/space/{space_id}/tag", "post", body, metadata);
   }
 
   /**
@@ -846,8 +1179,16 @@ class SDK {
    *
    * @summary Edit Space Tag
    */
-  editSpaceTag(body: types.EditSpaceTagBodyParam, metadata: types.EditSpaceTagMetadataParam): Promise<FetchResponse<200, types.EditSpaceTagResponse200>> {
-    return this.core.fetch('/v2/space/{space_id}/tag/{tag_name}', 'put', body, metadata);
+  editSpaceTag(
+    body: types.EditSpaceTagBodyParam,
+    metadata: types.EditSpaceTagMetadataParam
+  ): Promise<FetchResponse<200, types.EditSpaceTagResponse200>> {
+    return this.core.fetch(
+      "/v2/space/{space_id}/tag/{tag_name}",
+      "put",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -855,8 +1196,16 @@ class SDK {
    *
    * @summary Delete Space Tag
    */
-  deleteSpaceTag(body: types.DeleteSpaceTagBodyParam, metadata: types.DeleteSpaceTagMetadataParam): Promise<FetchResponse<200, types.DeleteSpaceTagResponse200>> {
-    return this.core.fetch('/v2/space/{space_id}/tag/{tag_name}', 'delete', body, metadata);
+  deleteSpaceTag(
+    body: types.DeleteSpaceTagBodyParam,
+    metadata: types.DeleteSpaceTagMetadataParam
+  ): Promise<FetchResponse<200, types.DeleteSpaceTagResponse200>> {
+    return this.core.fetch(
+      "/v2/space/{space_id}/tag/{tag_name}",
+      "delete",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -864,8 +1213,14 @@ class SDK {
    *
    * @summary Add Tag To Task
    */
-  addTagToTask(metadata: types.AddTagToTaskMetadataParam): Promise<FetchResponse<200, types.AddTagToTaskResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/tag/{tag_name}', 'post', metadata);
+  addTagToTask(
+    metadata: types.AddTagToTaskMetadataParam
+  ): Promise<FetchResponse<200, types.AddTagToTaskResponse200>> {
+    return this.core.fetch(
+      "/v2/task/{task_id}/tag/{tag_name}",
+      "post",
+      metadata
+    );
   }
 
   /**
@@ -873,8 +1228,14 @@ class SDK {
    *
    * @summary Remove Tag From Task
    */
-  removeTagFromTask(metadata: types.RemoveTagFromTaskMetadataParam): Promise<FetchResponse<200, types.RemoveTagFromTaskResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/tag/{tag_name}', 'delete', metadata);
+  removeTagFromTask(
+    metadata: types.RemoveTagFromTaskMetadataParam
+  ): Promise<FetchResponse<200, types.RemoveTagFromTaskResponse200>> {
+    return this.core.fetch(
+      "/v2/task/{task_id}/tag/{tag_name}",
+      "delete",
+      metadata
+    );
   }
 
   /**
@@ -887,8 +1248,10 @@ class SDK {
    *
    * @summary Get Tasks
    */
-  getTasks(metadata: types.GetTasksMetadataParam): Promise<FetchResponse<200, types.GetTasksResponse200>> {
-    return this.core.fetch('/v2/list/{list_id}/task', 'get', metadata);
+  getTasks(
+    metadata: types.GetTasksMetadataParam
+  ): Promise<FetchResponse<200, types.GetTasksResponse200>> {
+    return this.core.fetch("/v2/list/{list_id}/task", "get", metadata);
   }
 
   /**
@@ -896,8 +1259,11 @@ class SDK {
    *
    * @summary Create Task
    */
-  createTask(body: types.CreateTaskBodyParam, metadata: types.CreateTaskMetadataParam): Promise<FetchResponse<200, types.CreateTaskResponse200>> {
-    return this.core.fetch('/v2/list/{list_id}/task', 'post', body, metadata);
+  createTask(
+    body: types.CreateTaskBodyParam,
+    metadata: types.CreateTaskMetadataParam
+  ): Promise<FetchResponse<200, types.CreateTaskResponse200>> {
+    return this.core.fetch("/v2/list/{list_id}/task", "post", body, metadata);
   }
 
   /**
@@ -910,8 +1276,10 @@ class SDK {
    *
    * @summary Get Task
    */
-  getTask(metadata: types.GetTaskMetadataParam): Promise<FetchResponse<200, types.GetTaskResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}', 'get', metadata);
+  getTask(
+    metadata: types.GetTaskMetadataParam
+  ): Promise<FetchResponse<200, types.GetTaskResponse200>> {
+    return this.core.fetch("/v2/task/{task_id}", "get", metadata);
   }
 
   /**
@@ -919,8 +1287,11 @@ class SDK {
    *
    * @summary Update Task
    */
-  updateTask(body: types.UpdateTaskBodyParam, metadata: types.UpdateTaskMetadataParam): Promise<FetchResponse<200, types.UpdateTaskResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}', 'put', body, metadata);
+  updateTask(
+    body: types.UpdateTaskBodyParam,
+    metadata: types.UpdateTaskMetadataParam
+  ): Promise<FetchResponse<200, types.UpdateTaskResponse200>> {
+    return this.core.fetch("/v2/task/{task_id}", "put", body, metadata);
   }
 
   /**
@@ -928,8 +1299,10 @@ class SDK {
    *
    * @summary Delete Task
    */
-  deleteTask(metadata: types.DeleteTaskMetadataParam): Promise<FetchResponse<204, types.DeleteTaskResponse204>> {
-    return this.core.fetch('/v2/task/{task_id}', 'delete', metadata);
+  deleteTask(
+    metadata: types.DeleteTaskMetadataParam
+  ): Promise<FetchResponse<204, types.DeleteTaskResponse204>> {
+    return this.core.fetch("/v2/task/{task_id}", "delete", metadata);
   }
 
   /**
@@ -944,8 +1317,10 @@ class SDK {
    *
    * @summary Get Filtered Team Tasks
    */
-  getFilteredTeamTasks(metadata: types.GetFilteredTeamTasksMetadataParam): Promise<FetchResponse<200, types.GetFilteredTeamTasksResponse200>> {
-    return this.core.fetch('/v2/team/{team_Id}/task', 'get', metadata);
+  getFilteredTeamTasks(
+    metadata: types.GetFilteredTeamTasksMetadataParam
+  ): Promise<FetchResponse<200, types.GetFilteredTeamTasksResponse200>> {
+    return this.core.fetch("/v2/team/{team_Id}/task", "get", metadata);
   }
 
   /**
@@ -955,8 +1330,11 @@ class SDK {
    *
    * @summary Merge Tasks
    */
-  mergeTasks(body: types.MergeTasksBodyParam, metadata: types.MergeTasksMetadataParam): Promise<FetchResponse<number, unknown>> {
-    return this.core.fetch('/v2/task/{task_id}/merge', 'post', body, metadata);
+  mergeTasks(
+    body: types.MergeTasksBodyParam,
+    metadata: types.MergeTasksMetadataParam
+  ): Promise<FetchResponse<number, unknown>> {
+    return this.core.fetch("/v2/task/{task_id}/merge", "post", body, metadata);
   }
 
   /**
@@ -965,8 +1343,14 @@ class SDK {
    *
    * @summary Get Task's Time in Status
    */
-  getTaskSTimeinStatus(metadata: types.GetTaskSTimeinStatusMetadataParam): Promise<FetchResponse<200, types.GetTaskSTimeinStatusResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/time_in_status', 'get', metadata);
+  getTaskSTimeinStatus(
+    metadata: types.GetTaskSTimeinStatusMetadataParam
+  ): Promise<FetchResponse<200, types.GetTaskSTimeinStatusResponse200>> {
+    return this.core.fetch(
+      "/v2/task/{task_id}/time_in_status",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -975,8 +1359,14 @@ class SDK {
    *
    * @summary Get Bulk Tasks' Time in Status
    */
-  getBulkTasksTimeinStatus(metadata: types.GetBulkTasksTimeinStatusMetadataParam): Promise<FetchResponse<200, types.GetBulkTasksTimeinStatusResponse200>> {
-    return this.core.fetch('/v2/task/bulk_time_in_status/task_ids', 'get', metadata);
+  getBulkTasksTimeinStatus(
+    metadata: types.GetBulkTasksTimeinStatusMetadataParam
+  ): Promise<FetchResponse<200, types.GetBulkTasksTimeinStatusResponse200>> {
+    return this.core.fetch(
+      "/v2/task/bulk_time_in_status/task_ids",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -984,8 +1374,10 @@ class SDK {
    *
    * @summary Get Task Templates
    */
-  getTaskTemplates(metadata: types.GetTaskTemplatesMetadataParam): Promise<FetchResponse<200, types.GetTaskTemplatesResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/taskTemplate', 'get', metadata);
+  getTaskTemplates(
+    metadata: types.GetTaskTemplatesMetadataParam
+  ): Promise<FetchResponse<200, types.GetTaskTemplatesResponse200>> {
+    return this.core.fetch("/v2/team/{team_id}/taskTemplate", "get", metadata);
   }
 
   /**
@@ -993,8 +1385,16 @@ class SDK {
    *
    * @summary Create Task From Template
    */
-  createTaskFromTemplate(body: types.CreateTaskFromTemplateBodyParam, metadata: types.CreateTaskFromTemplateMetadataParam): Promise<FetchResponse<200, types.CreateTaskFromTemplateResponse200>> {
-    return this.core.fetch('/v2/list/{list_id}/taskTemplate/{template_id}', 'post', body, metadata);
+  createTaskFromTemplate(
+    body: types.CreateTaskFromTemplateBodyParam,
+    metadata: types.CreateTaskFromTemplateMetadataParam
+  ): Promise<FetchResponse<200, types.CreateTaskFromTemplateResponse200>> {
+    return this.core.fetch(
+      "/v2/list/{list_id}/taskTemplate/{template_id}",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1009,20 +1409,38 @@ class SDK {
    * @summary Create List From Template in Folder
    * @throws FetchError<400, types.CreateFolderListFromTemplateResponse400> Bad request - Name is required
    */
-  createFolderListFromTemplate(body: types.CreateFolderListFromTemplateBodyParam, metadata: types.CreateFolderListFromTemplateMetadataParam): Promise<FetchResponse<200, types.CreateFolderListFromTemplateResponse200>> {
-    return this.core.fetch('/v2/folder/{folder_id}/list_template/{template_id}', 'post', body, metadata);
+  createFolderListFromTemplate(
+    body: types.CreateFolderListFromTemplateBodyParam,
+    metadata: types.CreateFolderListFromTemplateMetadataParam
+  ): Promise<
+    FetchResponse<200, types.CreateFolderListFromTemplateResponse200>
+  > {
+    return this.core.fetch(
+      "/v2/folder/{folder_id}/list_template/{template_id}",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
-   * Create a new List using a List template within a Space. 
+   * Create a new List using a List template within a Space.
    * This request can be run asynchronously or synchronously via the `return_immediately`
    * parameter.
    *
    * @summary Create List From Template in Space.
    * @throws FetchError<400, types.CreateSpaceListFromTemplateResponse400> Bad request - Name is required, or is already taken
    */
-  createSpaceListFromTemplate(body: types.CreateSpaceListFromTemplateBodyParam, metadata: types.CreateSpaceListFromTemplateMetadataParam): Promise<FetchResponse<200, types.CreateSpaceListFromTemplateResponse200>> {
-    return this.core.fetch('/v2/space/{space_id}/list_template/{template_id}', 'post', body, metadata);
+  createSpaceListFromTemplate(
+    body: types.CreateSpaceListFromTemplateBodyParam,
+    metadata: types.CreateSpaceListFromTemplateMetadataParam
+  ): Promise<FetchResponse<200, types.CreateSpaceListFromTemplateResponse200>> {
+    return this.core.fetch(
+      "/v2/space/{space_id}/list_template/{template_id}",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1030,8 +1448,10 @@ class SDK {
    *
    * @summary Get Workspace seats
    */
-  getWorkspaceseats(metadata: types.GetWorkspaceseatsMetadataParam): Promise<FetchResponse<200, types.GetWorkspaceseatsResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/seats', 'get', metadata);
+  getWorkspaceseats(
+    metadata: types.GetWorkspaceseatsMetadataParam
+  ): Promise<FetchResponse<200, types.GetWorkspaceseatsResponse200>> {
+    return this.core.fetch("/v2/team/{team_id}/seats", "get", metadata);
   }
 
   /**
@@ -1039,8 +1459,10 @@ class SDK {
    *
    * @summary Get Workspace Plan
    */
-  getWorkspaceplan(metadata: types.GetWorkspaceplanMetadataParam): Promise<FetchResponse<200, types.GetWorkspaceplanResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/plan', 'get', metadata);
+  getWorkspaceplan(
+    metadata: types.GetWorkspaceplanMetadataParam
+  ): Promise<FetchResponse<200, types.GetWorkspaceplanResponse200>> {
+    return this.core.fetch("/v2/team/{team_id}/plan", "get", metadata);
   }
 
   /**
@@ -1063,8 +1485,11 @@ class SDK {
    *
    * @summary Create Group
    */
-  createUserGroup(body: types.CreateUserGroupBodyParam, metadata: types.CreateUserGroupMetadataParam): Promise<FetchResponse<200, types.CreateUserGroupResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/group', 'post', body, metadata);
+  createUserGroup(
+    body: types.CreateUserGroupBodyParam,
+    metadata: types.CreateUserGroupMetadataParam
+  ): Promise<FetchResponse<200, types.CreateUserGroupResponse200>> {
+    return this.core.fetch("/v2/team/{team_id}/group", "post", body, metadata);
   }
 
   /**
@@ -1072,8 +1497,10 @@ class SDK {
    *
    * @summary Get Custom Task Types
    */
-  getCustomItems(metadata: types.GetCustomItemsMetadataParam): Promise<FetchResponse<200, types.GetCustomItemsResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/custom_item', 'get', metadata);
+  getCustomItems(
+    metadata: types.GetCustomItemsMetadataParam
+  ): Promise<FetchResponse<200, types.GetCustomItemsResponse200>> {
+    return this.core.fetch("/v2/team/{team_id}/custom_item", "get", metadata);
   }
 
   /**
@@ -1094,8 +1521,11 @@ class SDK {
    *
    * @summary Update Group
    */
-  updateTeam(body: types.UpdateTeamBodyParam, metadata: types.UpdateTeamMetadataParam): Promise<FetchResponse<200, types.UpdateTeamResponse200>> {
-    return this.core.fetch('/v2/group/{group_id}', 'put', body, metadata);
+  updateTeam(
+    body: types.UpdateTeamBodyParam,
+    metadata: types.UpdateTeamMetadataParam
+  ): Promise<FetchResponse<200, types.UpdateTeamResponse200>> {
+    return this.core.fetch("/v2/group/{group_id}", "put", body, metadata);
   }
 
   /**
@@ -1108,8 +1538,10 @@ class SDK {
    *
    * @summary Delete Group
    */
-  deleteTeam(metadata: types.DeleteTeamMetadataParam): Promise<FetchResponse<200, types.DeleteTeamResponse200>> {
-    return this.core.fetch('/v2/group/{group_id}', 'delete', metadata);
+  deleteTeam(
+    metadata: types.DeleteTeamMetadataParam
+  ): Promise<FetchResponse<200, types.DeleteTeamResponse200>> {
+    return this.core.fetch("/v2/group/{group_id}", "delete", metadata);
   }
 
   /**
@@ -1122,8 +1554,10 @@ class SDK {
    *
    * @summary Get Groups
    */
-  getTeams1(metadata: types.GetTeams1MetadataParam): Promise<FetchResponse<200, types.GetTeams1Response200>> {
-    return this.core.fetch('/v2/group', 'get', metadata);
+  getTeams1(
+    metadata: types.GetTeams1MetadataParam
+  ): Promise<FetchResponse<200, types.GetTeams1Response200>> {
+    return this.core.fetch("/v2/group", "get", metadata);
   }
 
   /**
@@ -1132,8 +1566,10 @@ class SDK {
    *
    * @summary Get tracked time
    */
-  gettrackedtime(metadata: types.GettrackedtimeMetadataParam): Promise<FetchResponse<200, types.GettrackedtimeResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/time', 'get', metadata);
+  gettrackedtime(
+    metadata: types.GettrackedtimeMetadataParam
+  ): Promise<FetchResponse<200, types.GettrackedtimeResponse200>> {
+    return this.core.fetch("/v2/task/{task_id}/time", "get", metadata);
   }
 
   /**
@@ -1142,8 +1578,11 @@ class SDK {
    *
    * @summary Track time
    */
-  tracktime(body: types.TracktimeBodyParam, metadata: types.TracktimeMetadataParam): Promise<FetchResponse<200, types.TracktimeResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/time', 'post', body, metadata);
+  tracktime(
+    body: types.TracktimeBodyParam,
+    metadata: types.TracktimeMetadataParam
+  ): Promise<FetchResponse<200, types.TracktimeResponse200>> {
+    return this.core.fetch("/v2/task/{task_id}/time", "post", body, metadata);
   }
 
   /**
@@ -1152,8 +1591,16 @@ class SDK {
    *
    * @summary Edit time tracked
    */
-  edittimetracked(body: types.EdittimetrackedBodyParam, metadata: types.EdittimetrackedMetadataParam): Promise<FetchResponse<200, types.EdittimetrackedResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/time/{interval_id}', 'put', body, metadata);
+  edittimetracked(
+    body: types.EdittimetrackedBodyParam,
+    metadata: types.EdittimetrackedMetadataParam
+  ): Promise<FetchResponse<200, types.EdittimetrackedResponse200>> {
+    return this.core.fetch(
+      "/v2/task/{task_id}/time/{interval_id}",
+      "put",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1162,8 +1609,14 @@ class SDK {
    *
    * @summary Delete time tracked
    */
-  deletetimetracked(metadata: types.DeletetimetrackedMetadataParam): Promise<FetchResponse<200, types.DeletetimetrackedResponse200>> {
-    return this.core.fetch('/v2/task/{task_id}/time/{interval_id}', 'delete', metadata);
+  deletetimetracked(
+    metadata: types.DeletetimetrackedMetadataParam
+  ): Promise<FetchResponse<200, types.DeletetimetrackedResponse200>> {
+    return this.core.fetch(
+      "/v2/task/{task_id}/time/{interval_id}",
+      "delete",
+      metadata
+    );
   }
 
   /**
@@ -1183,8 +1636,12 @@ class SDK {
    *
    * @summary Get time entries within a date range
    */
-  gettimeentrieswithinadaterange(metadata: types.GettimeentrieswithinadaterangeMetadataParam): Promise<FetchResponse<200, types.GettimeentrieswithinadaterangeResponse200>> {
-    return this.core.fetch('/v2/team/{team_Id}/time_entries', 'get', metadata);
+  gettimeentrieswithinadaterange(
+    metadata: types.GettimeentrieswithinadaterangeMetadataParam
+  ): Promise<
+    FetchResponse<200, types.GettimeentrieswithinadaterangeResponse200>
+  > {
+    return this.core.fetch("/v2/team/{team_Id}/time_entries", "get", metadata);
   }
 
   /**
@@ -1195,8 +1652,16 @@ class SDK {
    *
    * @summary Create a time entry
    */
-  createatimeentry(body: types.CreateatimeentryBodyParam, metadata: types.CreateatimeentryMetadataParam): Promise<FetchResponse<200, types.CreateatimeentryResponse200>> {
-    return this.core.fetch('/v2/team/{team_Id}/time_entries', 'post', body, metadata);
+  createatimeentry(
+    body: types.CreateatimeentryBodyParam,
+    metadata: types.CreateatimeentryMetadataParam
+  ): Promise<FetchResponse<200, types.CreateatimeentryResponse200>> {
+    return this.core.fetch(
+      "/v2/team/{team_Id}/time_entries",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1207,8 +1672,14 @@ class SDK {
    *
    * @summary Get singular time entry
    */
-  getsingulartimeentry(metadata: types.GetsingulartimeentryMetadataParam): Promise<FetchResponse<200, types.GetsingulartimeentryResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/time_entries/{timer_id}', 'get', metadata);
+  getsingulartimeentry(
+    metadata: types.GetsingulartimeentryMetadataParam
+  ): Promise<FetchResponse<200, types.GetsingulartimeentryResponse200>> {
+    return this.core.fetch(
+      "/v2/team/{team_id}/time_entries/{timer_id}",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -1216,8 +1687,14 @@ class SDK {
    *
    * @summary Delete a time Entry
    */
-  deleteatimeEntry(metadata: types.DeleteatimeEntryMetadataParam): Promise<FetchResponse<200, types.DeleteatimeEntryResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/time_entries/{timer_id}', 'delete', metadata);
+  deleteatimeEntry(
+    metadata: types.DeleteatimeEntryMetadataParam
+  ): Promise<FetchResponse<200, types.DeleteatimeEntryResponse200>> {
+    return this.core.fetch(
+      "/v2/team/{team_id}/time_entries/{timer_id}",
+      "delete",
+      metadata
+    );
   }
 
   /**
@@ -1225,8 +1702,16 @@ class SDK {
    *
    * @summary Update a time Entry
    */
-  updateatimeEntry(body: types.UpdateatimeEntryBodyParam, metadata: types.UpdateatimeEntryMetadataParam): Promise<FetchResponse<200, types.UpdateatimeEntryResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/time_entries/{timer_id}', 'put', body, metadata);
+  updateatimeEntry(
+    body: types.UpdateatimeEntryBodyParam,
+    metadata: types.UpdateatimeEntryMetadataParam
+  ): Promise<FetchResponse<200, types.UpdateatimeEntryResponse200>> {
+    return this.core.fetch(
+      "/v2/team/{team_id}/time_entries/{timer_id}",
+      "put",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1234,8 +1719,14 @@ class SDK {
    *
    * @summary Get time entry history
    */
-  gettimeentryhistory(metadata: types.GettimeentryhistoryMetadataParam): Promise<FetchResponse<200, types.GettimeentryhistoryResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/time_entries/{timer_id}/history', 'get', metadata);
+  gettimeentryhistory(
+    metadata: types.GettimeentryhistoryMetadataParam
+  ): Promise<FetchResponse<200, types.GettimeentryhistoryResponse200>> {
+    return this.core.fetch(
+      "/v2/team/{team_id}/time_entries/{timer_id}/history",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -1246,8 +1737,14 @@ class SDK {
    *
    * @summary Get running time entry
    */
-  getrunningtimeentry(metadata: types.GetrunningtimeentryMetadataParam): Promise<FetchResponse<200, types.GetrunningtimeentryResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/time_entries/current', 'get', metadata);
+  getrunningtimeentry(
+    metadata: types.GetrunningtimeentryMetadataParam
+  ): Promise<FetchResponse<200, types.GetrunningtimeentryResponse200>> {
+    return this.core.fetch(
+      "/v2/team/{team_id}/time_entries/current",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -1255,8 +1752,16 @@ class SDK {
    *
    * @summary Remove tags from time entries
    */
-  removetagsfromtimeentries(body: types.RemovetagsfromtimeentriesBodyParam, metadata: types.RemovetagsfromtimeentriesMetadataParam): Promise<FetchResponse<200, types.RemovetagsfromtimeentriesResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/time_entries/tags', 'delete', body, metadata);
+  removetagsfromtimeentries(
+    body: types.RemovetagsfromtimeentriesBodyParam,
+    metadata: types.RemovetagsfromtimeentriesMetadataParam
+  ): Promise<FetchResponse<200, types.RemovetagsfromtimeentriesResponse200>> {
+    return this.core.fetch(
+      "/v2/team/{team_id}/time_entries/tags",
+      "delete",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1264,8 +1769,14 @@ class SDK {
    *
    * @summary Get all tags from time entries
    */
-  getalltagsfromtimeentries(metadata: types.GetalltagsfromtimeentriesMetadataParam): Promise<FetchResponse<200, types.GetalltagsfromtimeentriesResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/time_entries/tags', 'get', metadata);
+  getalltagsfromtimeentries(
+    metadata: types.GetalltagsfromtimeentriesMetadataParam
+  ): Promise<FetchResponse<200, types.GetalltagsfromtimeentriesResponse200>> {
+    return this.core.fetch(
+      "/v2/team/{team_id}/time_entries/tags",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -1273,8 +1784,16 @@ class SDK {
    *
    * @summary Add tags from time entries
    */
-  addtagsfromtimeentries(body: types.AddtagsfromtimeentriesBodyParam, metadata: types.AddtagsfromtimeentriesMetadataParam): Promise<FetchResponse<200, types.AddtagsfromtimeentriesResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/time_entries/tags', 'post', body, metadata);
+  addtagsfromtimeentries(
+    body: types.AddtagsfromtimeentriesBodyParam,
+    metadata: types.AddtagsfromtimeentriesMetadataParam
+  ): Promise<FetchResponse<200, types.AddtagsfromtimeentriesResponse200>> {
+    return this.core.fetch(
+      "/v2/team/{team_id}/time_entries/tags",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1282,8 +1801,18 @@ class SDK {
    *
    * @summary Change tag names from time entries
    */
-  changetagnamesfromtimeentries(body: types.ChangetagnamesfromtimeentriesBodyParam, metadata: types.ChangetagnamesfromtimeentriesMetadataParam): Promise<FetchResponse<200, types.ChangetagnamesfromtimeentriesResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/time_entries/tags', 'put', body, metadata);
+  changetagnamesfromtimeentries(
+    body: types.ChangetagnamesfromtimeentriesBodyParam,
+    metadata: types.ChangetagnamesfromtimeentriesMetadataParam
+  ): Promise<
+    FetchResponse<200, types.ChangetagnamesfromtimeentriesResponse200>
+  > {
+    return this.core.fetch(
+      "/v2/team/{team_id}/time_entries/tags",
+      "put",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1291,8 +1820,16 @@ class SDK {
    *
    * @summary Start a time Entry
    */
-  startatimeEntry(body: types.StartatimeEntryBodyParam, metadata: types.StartatimeEntryMetadataParam): Promise<FetchResponse<200, types.StartatimeEntryResponse200>> {
-    return this.core.fetch('/v2/team/{team_Id}/time_entries/start', 'post', body, metadata);
+  startatimeEntry(
+    body: types.StartatimeEntryBodyParam,
+    metadata: types.StartatimeEntryMetadataParam
+  ): Promise<FetchResponse<200, types.StartatimeEntryResponse200>> {
+    return this.core.fetch(
+      "/v2/team/{team_Id}/time_entries/start",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1300,8 +1837,14 @@ class SDK {
    *
    * @summary Stop a time Entry
    */
-  stopatimeEntry(metadata: types.StopatimeEntryMetadataParam): Promise<FetchResponse<200, types.StopatimeEntryResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/time_entries/stop', 'post', metadata);
+  stopatimeEntry(
+    metadata: types.StopatimeEntryMetadataParam
+  ): Promise<FetchResponse<200, types.StopatimeEntryResponse200>> {
+    return this.core.fetch(
+      "/v2/team/{team_id}/time_entries/stop",
+      "post",
+      metadata
+    );
   }
 
   /**
@@ -1313,8 +1856,11 @@ class SDK {
    *
    * @summary Invite User To Workspace
    */
-  inviteUserToWorkspace(body: types.InviteUserToWorkspaceBodyParam, metadata: types.InviteUserToWorkspaceMetadataParam): Promise<FetchResponse<200, types.InviteUserToWorkspaceResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/user', 'post', body, metadata);
+  inviteUserToWorkspace(
+    body: types.InviteUserToWorkspaceBodyParam,
+    metadata: types.InviteUserToWorkspaceMetadataParam
+  ): Promise<FetchResponse<200, types.InviteUserToWorkspaceResponse200>> {
+    return this.core.fetch("/v2/team/{team_id}/user", "post", body, metadata);
   }
 
   /**
@@ -1325,8 +1871,14 @@ class SDK {
    *
    * @summary Get User
    */
-  getUser(metadata: types.GetUserMetadataParam): Promise<FetchResponse<200, types.GetUserResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/user/{user_id}', 'get', metadata);
+  getUser(
+    metadata: types.GetUserMetadataParam
+  ): Promise<FetchResponse<200, types.GetUserResponse200>> {
+    return this.core.fetch(
+      "/v2/team/{team_id}/user/{user_id}",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -1337,8 +1889,16 @@ class SDK {
    *
    * @summary Edit User On Workspace
    */
-  editUserOnWorkspace(body: types.EditUserOnWorkspaceBodyParam, metadata: types.EditUserOnWorkspaceMetadataParam): Promise<FetchResponse<200, types.EditUserOnWorkspaceResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/user/{user_id}', 'put', body, metadata);
+  editUserOnWorkspace(
+    body: types.EditUserOnWorkspaceBodyParam,
+    metadata: types.EditUserOnWorkspaceMetadataParam
+  ): Promise<FetchResponse<200, types.EditUserOnWorkspaceResponse200>> {
+    return this.core.fetch(
+      "/v2/team/{team_id}/user/{user_id}",
+      "put",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1349,8 +1909,14 @@ class SDK {
    *
    * @summary Remove User From Workspace
    */
-  removeUserFromWorkspace(metadata: types.RemoveUserFromWorkspaceMetadataParam): Promise<FetchResponse<200, types.RemoveUserFromWorkspaceResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/user/{user_id}', 'delete', metadata);
+  removeUserFromWorkspace(
+    metadata: types.RemoveUserFromWorkspaceMetadataParam
+  ): Promise<FetchResponse<200, types.RemoveUserFromWorkspaceResponse200>> {
+    return this.core.fetch(
+      "/v2/team/{team_id}/user/{user_id}",
+      "delete",
+      metadata
+    );
   }
 
   /**
@@ -1358,8 +1924,10 @@ class SDK {
    *
    * @summary Get Workspace (Everything level) Views
    */
-  getTeamViews(metadata: types.GetTeamViewsMetadataParam): Promise<FetchResponse<200, types.GetTeamViewsResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/view', 'get', metadata);
+  getTeamViews(
+    metadata: types.GetTeamViewsMetadataParam
+  ): Promise<FetchResponse<200, types.GetTeamViewsResponse200>> {
+    return this.core.fetch("/v2/team/{team_id}/view", "get", metadata);
   }
 
   /**
@@ -1368,8 +1936,11 @@ class SDK {
    *
    * @summary Create Workspace (Everything level) View
    */
-  createTeamView(body: types.CreateTeamViewBodyParam, metadata: types.CreateTeamViewMetadataParam): Promise<FetchResponse<200, types.CreateTeamViewResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/view', 'post', body, metadata);
+  createTeamView(
+    body: types.CreateTeamViewBodyParam,
+    metadata: types.CreateTeamViewMetadataParam
+  ): Promise<FetchResponse<200, types.CreateTeamViewResponse200>> {
+    return this.core.fetch("/v2/team/{team_id}/view", "post", body, metadata);
   }
 
   /**
@@ -1377,8 +1948,10 @@ class SDK {
    *
    * @summary Get Space Views
    */
-  getSpaceViews(metadata: types.GetSpaceViewsMetadataParam): Promise<FetchResponse<200, types.GetSpaceViewsResponse200>> {
-    return this.core.fetch('/v2/space/{space_id}/view', 'get', metadata);
+  getSpaceViews(
+    metadata: types.GetSpaceViewsMetadataParam
+  ): Promise<FetchResponse<200, types.GetSpaceViewsResponse200>> {
+    return this.core.fetch("/v2/space/{space_id}/view", "get", metadata);
   }
 
   /**
@@ -1387,8 +1960,11 @@ class SDK {
    *
    * @summary Create Space View
    */
-  createSpaceView(body: types.CreateSpaceViewBodyParam, metadata: types.CreateSpaceViewMetadataParam): Promise<FetchResponse<200, types.CreateSpaceViewResponse200>> {
-    return this.core.fetch('/v2/space/{space_id}/view', 'post', body, metadata);
+  createSpaceView(
+    body: types.CreateSpaceViewBodyParam,
+    metadata: types.CreateSpaceViewMetadataParam
+  ): Promise<FetchResponse<200, types.CreateSpaceViewResponse200>> {
+    return this.core.fetch("/v2/space/{space_id}/view", "post", body, metadata);
   }
 
   /**
@@ -1396,8 +1972,10 @@ class SDK {
    *
    * @summary Get Folder Views
    */
-  getFolderViews(metadata: types.GetFolderViewsMetadataParam): Promise<FetchResponse<200, types.GetFolderViewsResponse200>> {
-    return this.core.fetch('/v2/folder/{folder_id}/view', 'get', metadata);
+  getFolderViews(
+    metadata: types.GetFolderViewsMetadataParam
+  ): Promise<FetchResponse<200, types.GetFolderViewsResponse200>> {
+    return this.core.fetch("/v2/folder/{folder_id}/view", "get", metadata);
   }
 
   /**
@@ -1406,8 +1984,16 @@ class SDK {
    *
    * @summary Create Folder View
    */
-  createFolderView(body: types.CreateFolderViewBodyParam, metadata: types.CreateFolderViewMetadataParam): Promise<FetchResponse<200, types.CreateFolderViewResponse200>> {
-    return this.core.fetch('/v2/folder/{folder_id}/view', 'post', body, metadata);
+  createFolderView(
+    body: types.CreateFolderViewBodyParam,
+    metadata: types.CreateFolderViewMetadataParam
+  ): Promise<FetchResponse<200, types.CreateFolderViewResponse200>> {
+    return this.core.fetch(
+      "/v2/folder/{folder_id}/view",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1416,8 +2002,10 @@ class SDK {
    *
    * @summary Get List Views
    */
-  getListViews(metadata: types.GetListViewsMetadataParam): Promise<FetchResponse<200, types.GetListViewsResponse200>> {
-    return this.core.fetch('/v2/list/{list_id}/view', 'get', metadata);
+  getListViews(
+    metadata: types.GetListViewsMetadataParam
+  ): Promise<FetchResponse<200, types.GetListViewsResponse200>> {
+    return this.core.fetch("/v2/list/{list_id}/view", "get", metadata);
   }
 
   /**
@@ -1426,8 +2014,11 @@ class SDK {
    *
    * @summary Create List View
    */
-  createListView(body: types.CreateListViewBodyParam, metadata: types.CreateListViewMetadataParam): Promise<FetchResponse<200, types.CreateListViewResponse200>> {
-    return this.core.fetch('/v2/list/{list_id}/view', 'post', body, metadata);
+  createListView(
+    body: types.CreateListViewBodyParam,
+    metadata: types.CreateListViewMetadataParam
+  ): Promise<FetchResponse<200, types.CreateListViewResponse200>> {
+    return this.core.fetch("/v2/list/{list_id}/view", "post", body, metadata);
   }
 
   /**
@@ -1435,8 +2026,10 @@ class SDK {
    *
    * @summary Get View
    */
-  getView(metadata: types.GetViewMetadataParam): Promise<FetchResponse<200, types.GetViewResponse200>> {
-    return this.core.fetch('/v2/view/{view_id}', 'get', metadata);
+  getView(
+    metadata: types.GetViewMetadataParam
+  ): Promise<FetchResponse<200, types.GetViewResponse200>> {
+    return this.core.fetch("/v2/view/{view_id}", "get", metadata);
   }
 
   /**
@@ -1444,16 +2037,21 @@ class SDK {
    *
    * @summary Update View
    */
-  updateView(body: types.UpdateViewBodyParam, metadata: types.UpdateViewMetadataParam): Promise<FetchResponse<200, types.UpdateViewResponse200>> {
-    return this.core.fetch('/v2/view/{view_id}', 'put', body, metadata);
+  updateView(
+    body: types.UpdateViewBodyParam,
+    metadata: types.UpdateViewMetadataParam
+  ): Promise<FetchResponse<200, types.UpdateViewResponse200>> {
+    return this.core.fetch("/v2/view/{view_id}", "put", body, metadata);
   }
 
   /**
    * Delete View
    *
    */
-  deleteView(metadata: types.DeleteViewMetadataParam): Promise<FetchResponse<200, types.DeleteViewResponse200>> {
-    return this.core.fetch('/v2/view/{view_id}', 'delete', metadata);
+  deleteView(
+    metadata: types.DeleteViewMetadataParam
+  ): Promise<FetchResponse<200, types.DeleteViewResponse200>> {
+    return this.core.fetch("/v2/view/{view_id}", "delete", metadata);
   }
 
   /**
@@ -1461,8 +2059,10 @@ class SDK {
    *
    * @summary Get View Tasks
    */
-  getViewTasks(metadata: types.GetViewTasksMetadataParam): Promise<FetchResponse<200, types.GetViewTasksResponse200>> {
-    return this.core.fetch('/v2/view/{view_id}/task', 'get', metadata);
+  getViewTasks(
+    metadata: types.GetViewTasksMetadataParam
+  ): Promise<FetchResponse<200, types.GetViewTasksResponse200>> {
+    return this.core.fetch("/v2/view/{view_id}/task", "get", metadata);
   }
 
   /**
@@ -1471,8 +2071,10 @@ class SDK {
    *
    * @summary Get Webhooks
    */
-  getWebhooks(metadata: types.GetWebhooksMetadataParam): Promise<FetchResponse<200, types.GetWebhooksResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/webhook', 'get', metadata);
+  getWebhooks(
+    metadata: types.GetWebhooksMetadataParam
+  ): Promise<FetchResponse<200, types.GetWebhooksResponse200>> {
+    return this.core.fetch("/v2/team/{team_id}/webhook", "get", metadata);
   }
 
   /**
@@ -1481,8 +2083,16 @@ class SDK {
    *
    * @summary Create Webhook
    */
-  createWebhook(body: types.CreateWebhookBodyParam, metadata: types.CreateWebhookMetadataParam): Promise<FetchResponse<200, types.CreateWebhookResponse200>> {
-    return this.core.fetch('/v2/team/{team_id}/webhook', 'post', body, metadata);
+  createWebhook(
+    body: types.CreateWebhookBodyParam,
+    metadata: types.CreateWebhookMetadataParam
+  ): Promise<FetchResponse<200, types.CreateWebhookResponse200>> {
+    return this.core.fetch(
+      "/v2/team/{team_id}/webhook",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1490,8 +2100,11 @@ class SDK {
    *
    * @summary Update Webhook
    */
-  updateWebhook(body: types.UpdateWebhookBodyParam, metadata: types.UpdateWebhookMetadataParam): Promise<FetchResponse<200, types.UpdateWebhookResponse200>> {
-    return this.core.fetch('/v2/webhook/{webhook_id}', 'put', body, metadata);
+  updateWebhook(
+    body: types.UpdateWebhookBodyParam,
+    metadata: types.UpdateWebhookMetadataParam
+  ): Promise<FetchResponse<200, types.UpdateWebhookResponse200>> {
+    return this.core.fetch("/v2/webhook/{webhook_id}", "put", body, metadata);
   }
 
   /**
@@ -1499,8 +2112,10 @@ class SDK {
    *
    * @summary Delete Webhook
    */
-  deleteWebhook(metadata: types.DeleteWebhookMetadataParam): Promise<FetchResponse<200, types.DeleteWebhookResponse200>> {
-    return this.core.fetch('/v2/webhook/{webhook_id}', 'delete', metadata);
+  deleteWebhook(
+    metadata: types.DeleteWebhookMetadataParam
+  ): Promise<FetchResponse<200, types.DeleteWebhookResponse200>> {
+    return this.core.fetch("/v2/webhook/{webhook_id}", "delete", metadata);
   }
 
   /**
@@ -1508,8 +2123,14 @@ class SDK {
    *
    * @summary Search Docs
    */
-  searchDocs(metadata: types.SearchDocsMetadataParam): Promise<FetchResponse<200, types.SearchDocsResponse200>> {
-    return this.core.fetch('/v3/workspaces/{workspaceId}/docs', 'get', metadata);
+  searchDocs(
+    metadata: types.SearchDocsMetadataParam
+  ): Promise<FetchResponse<200, types.SearchDocsResponse200>> {
+    return this.core.fetch(
+      "/v3/workspaces/{workspaceId}/docs",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -1517,8 +2138,16 @@ class SDK {
    *
    * @summary Create Doc
    */
-  createDoc(body: types.CreateDocBodyParam, metadata: types.CreateDocMetadataParam): Promise<FetchResponse<201, types.CreateDocResponse201>> {
-    return this.core.fetch('/v3/workspaces/{workspaceId}/docs', 'post', body, metadata);
+  createDoc(
+    body: types.CreateDocBodyParam,
+    metadata: types.CreateDocMetadataParam
+  ): Promise<FetchResponse<201, types.CreateDocResponse201>> {
+    return this.core.fetch(
+      "/v3/workspaces/{workspaceId}/docs",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1526,8 +2155,14 @@ class SDK {
    *
    * @summary Get Doc
    */
-  getDoc(metadata: types.GetDocMetadataParam): Promise<FetchResponse<200, types.GetDocResponse200>> {
-    return this.core.fetch('/v3/workspaces/{workspaceId}/docs/{docId}', 'get', metadata);
+  getDoc(
+    metadata: types.GetDocMetadataParam
+  ): Promise<FetchResponse<200, types.GetDocResponse200>> {
+    return this.core.fetch(
+      "/v3/workspaces/{workspaceId}/docs/{docId}",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -1535,8 +2170,14 @@ class SDK {
    *
    * @summary Get Doc PageListing
    */
-  getDocPageListing(metadata: types.GetDocPageListingMetadataParam): Promise<FetchResponse<200, types.GetDocPageListingResponse200>> {
-    return this.core.fetch('/v3/workspaces/{workspaceId}/docs/{docId}/pageListing', 'get', metadata);
+  getDocPageListing(
+    metadata: types.GetDocPageListingMetadataParam
+  ): Promise<FetchResponse<200, types.GetDocPageListingResponse200>> {
+    return this.core.fetch(
+      "/v3/workspaces/{workspaceId}/docs/{docId}/pageListing",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -1544,8 +2185,14 @@ class SDK {
    *
    * @summary Get Doc pages
    */
-  getDocPages(metadata: types.GetDocPagesMetadataParam): Promise<FetchResponse<200, types.GetDocPagesResponse200>> {
-    return this.core.fetch('/v3/workspaces/{workspaceId}/docs/{docId}/pages', 'get', metadata);
+  getDocPages(
+    metadata: types.GetDocPagesMetadataParam
+  ): Promise<FetchResponse<200, types.GetDocPagesResponse200>> {
+    return this.core.fetch(
+      "/v3/workspaces/{workspaceId}/docs/{docId}/pages",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -1553,8 +2200,16 @@ class SDK {
    *
    * @summary Create page
    */
-  createPage(body: types.CreatePageBodyParam, metadata: types.CreatePageMetadataParam): Promise<FetchResponse<201, types.CreatePageResponse201>> {
-    return this.core.fetch('/v3/workspaces/{workspaceId}/docs/{docId}/pages', 'post', body, metadata);
+  createPage(
+    body: types.CreatePageBodyParam,
+    metadata: types.CreatePageMetadataParam
+  ): Promise<FetchResponse<201, types.CreatePageResponse201>> {
+    return this.core.fetch(
+      "/v3/workspaces/{workspaceId}/docs/{docId}/pages",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1564,8 +2219,14 @@ class SDK {
    *
    * @summary Get page
    */
-  getPage(metadata: types.GetPageMetadataParam): Promise<FetchResponse<200, types.GetPageResponse200>> {
-    return this.core.fetch('/v3/workspaces/{workspaceId}/docs/{docId}/pages/{pageId}', 'get', metadata);
+  getPage(
+    metadata: types.GetPageMetadataParam
+  ): Promise<FetchResponse<200, types.GetPageResponse200>> {
+    return this.core.fetch(
+      "/v3/workspaces/{workspaceId}/docs/{docId}/pages/{pageId}",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -1573,8 +2234,16 @@ class SDK {
    *
    * @summary Edit page
    */
-  editPage(body: types.EditPageBodyParam, metadata: types.EditPageMetadataParam): Promise<FetchResponse<200, types.EditPageResponse200>> {
-    return this.core.fetch('/v3/workspaces/{workspaceId}/docs/{docId}/pages/{pageId}', 'put', body, metadata);
+  editPage(
+    body: types.EditPageBodyParam,
+    metadata: types.EditPageMetadataParam
+  ): Promise<FetchResponse<200, types.EditPageResponse200>> {
+    return this.core.fetch(
+      "/v3/workspaces/{workspaceId}/docs/{docId}/pages/{pageId}",
+      "put",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1583,8 +2252,16 @@ class SDK {
    *
    * @summary Create Workspace-level audit logs
    */
-  createWorkspaceAuditLog(body: types.CreateWorkspaceAuditLogBodyParam, metadata: types.CreateWorkspaceAuditLogMetadataParam): Promise<FetchResponse<200, types.CreateWorkspaceAuditLogResponse200>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/auditlogs', 'post', body, metadata);
+  createWorkspaceAuditLog(
+    body: types.CreateWorkspaceAuditLogBodyParam,
+    metadata: types.CreateWorkspaceAuditLogMetadataParam
+  ): Promise<FetchResponse<200, types.CreateWorkspaceAuditLogResponse200>> {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/auditlogs",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1593,8 +2270,16 @@ class SDK {
    *
    * @summary Update privacy and access of an object or location
    */
-  updatePrivacyAndAccess(body: types.UpdatePrivacyAndAccessBodyParam, metadata: types.UpdatePrivacyAndAccessMetadataParam): Promise<FetchResponse<200, types.UpdatePrivacyAndAccessResponse200>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/{object_type}/{object_id}/acls', 'patch', body, metadata);
+  updatePrivacyAndAccess(
+    body: types.UpdatePrivacyAndAccessBodyParam,
+    metadata: types.UpdatePrivacyAndAccessMetadataParam
+  ): Promise<FetchResponse<200, types.UpdatePrivacyAndAccessResponse200>> {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/{object_type}/{object_id}/acls",
+      "patch",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1602,8 +2287,17 @@ class SDK {
    *
    * @summary Retrieve Channels
    */
-  getChatChannels(metadata: types.GetChatChannelsMetadataParam): Promise<FetchResponse<200, types.GetChatChannelsResponse200> | FetchResponse<number, types.GetChatChannelsResponseDefault>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/chat/channels', 'get', metadata);
+  getChatChannels(
+    metadata: types.GetChatChannelsMetadataParam
+  ): Promise<
+    | FetchResponse<200, types.GetChatChannelsResponse200>
+    | FetchResponse<number, types.GetChatChannelsResponseDefault>
+  > {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/chat/channels",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -1612,8 +2306,20 @@ class SDK {
    *
    * @summary Create a Channel
    */
-  createChatChannel(body: types.CreateChatChannelBodyParam, metadata: types.CreateChatChannelMetadataParam): Promise<FetchResponse<200, types.CreateChatChannelResponse200> | FetchResponse<201, types.CreateChatChannelResponse201> | FetchResponse<number, types.CreateChatChannelResponseDefault>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/chat/channels', 'post', body, metadata);
+  createChatChannel(
+    body: types.CreateChatChannelBodyParam,
+    metadata: types.CreateChatChannelMetadataParam
+  ): Promise<
+    | FetchResponse<200, types.CreateChatChannelResponse200>
+    | FetchResponse<201, types.CreateChatChannelResponse201>
+    | FetchResponse<number, types.CreateChatChannelResponseDefault>
+  > {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/chat/channels",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1622,8 +2328,20 @@ class SDK {
    *
    * @summary Create a Channel on a Space, Folder, or List
    */
-  createLocationChatChannel(body: types.CreateLocationChatChannelBodyParam, metadata: types.CreateLocationChatChannelMetadataParam): Promise<FetchResponse<200, types.CreateLocationChatChannelResponse200> | FetchResponse<201, types.CreateLocationChatChannelResponse201> | FetchResponse<number, types.CreateLocationChatChannelResponseDefault>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/chat/channels/location', 'post', body, metadata);
+  createLocationChatChannel(
+    body: types.CreateLocationChatChannelBodyParam,
+    metadata: types.CreateLocationChatChannelMetadataParam
+  ): Promise<
+    | FetchResponse<200, types.CreateLocationChatChannelResponse200>
+    | FetchResponse<201, types.CreateLocationChatChannelResponse201>
+    | FetchResponse<number, types.CreateLocationChatChannelResponseDefault>
+  > {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/chat/channels/location",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1632,8 +2350,20 @@ class SDK {
    *
    * @summary Create a Direct Message
    */
-  createDirectMessageChatChannel(body: types.CreateDirectMessageChatChannelBodyParam, metadata: types.CreateDirectMessageChatChannelMetadataParam): Promise<FetchResponse<200, types.CreateDirectMessageChatChannelResponse200> | FetchResponse<201, types.CreateDirectMessageChatChannelResponse201> | FetchResponse<number, types.CreateDirectMessageChatChannelResponseDefault>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/chat/channels/direct_message', 'post', body, metadata);
+  createDirectMessageChatChannel(
+    body: types.CreateDirectMessageChatChannelBodyParam,
+    metadata: types.CreateDirectMessageChatChannelMetadataParam
+  ): Promise<
+    | FetchResponse<200, types.CreateDirectMessageChatChannelResponse200>
+    | FetchResponse<201, types.CreateDirectMessageChatChannelResponse201>
+    | FetchResponse<number, types.CreateDirectMessageChatChannelResponseDefault>
+  > {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/chat/channels/direct_message",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1642,8 +2372,17 @@ class SDK {
    * @summary Retrieves a single Channel by ID.
    * @throws FetchError<404, types.GetChatChannelResponse404> Returns when the requested {channelId} was not found.
    */
-  getChatChannel(metadata: types.GetChatChannelMetadataParam): Promise<FetchResponse<200, types.GetChatChannelResponse200> | FetchResponse<number, types.GetChatChannelResponseDefault>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/chat/channels/{channel_id}', 'get', metadata);
+  getChatChannel(
+    metadata: types.GetChatChannelMetadataParam
+  ): Promise<
+    | FetchResponse<200, types.GetChatChannelResponse200>
+    | FetchResponse<number, types.GetChatChannelResponseDefault>
+  > {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/chat/channels/{channel_id}",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -1653,8 +2392,19 @@ class SDK {
    * @throws FetchError<400, types.UpdateChatChannelResponse400> Invalid update request for {channelId}.
    * @throws FetchError<404, types.UpdateChatChannelResponse404> Returns when the requested {channelId} was not found when updating a Channel
    */
-  updateChatChannel(body: types.UpdateChatChannelBodyParam, metadata: types.UpdateChatChannelMetadataParam): Promise<FetchResponse<200, types.UpdateChatChannelResponse200> | FetchResponse<number, types.UpdateChatChannelResponseDefault>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/chat/channels/{channel_id}', 'patch', body, metadata);
+  updateChatChannel(
+    body: types.UpdateChatChannelBodyParam,
+    metadata: types.UpdateChatChannelMetadataParam
+  ): Promise<
+    | FetchResponse<200, types.UpdateChatChannelResponse200>
+    | FetchResponse<number, types.UpdateChatChannelResponseDefault>
+  > {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/chat/channels/{channel_id}",
+      "patch",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1664,8 +2414,17 @@ class SDK {
    * @summary Delete a Channel
    * @throws FetchError<404, types.DeleteChatChannelResponse404> Returns when the requested {channelId} was not found when deleting a Channel
    */
-  deleteChatChannel(metadata: types.DeleteChatChannelMetadataParam): Promise<FetchResponse<204, types.DeleteChatChannelResponse204> | FetchResponse<number, types.DeleteChatChannelResponseDefault>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/chat/channels/{channel_id}', 'delete', metadata);
+  deleteChatChannel(
+    metadata: types.DeleteChatChannelMetadataParam
+  ): Promise<
+    | FetchResponse<204, types.DeleteChatChannelResponse204>
+    | FetchResponse<number, types.DeleteChatChannelResponseDefault>
+  > {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/chat/channels/{channel_id}",
+      "delete",
+      metadata
+    );
   }
 
   /**
@@ -1674,8 +2433,17 @@ class SDK {
    * @summary Retrieve followers of a Channel (based on Channel ID)
    * @throws FetchError<404, types.GetChatChannelFollowersResponse404> Returns when the specified {channelId} was not found.
    */
-  getChatChannelFollowers(metadata: types.GetChatChannelFollowersMetadataParam): Promise<FetchResponse<200, types.GetChatChannelFollowersResponse200> | FetchResponse<number, types.GetChatChannelFollowersResponseDefault>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/chat/channels/{channel_id}/followers', 'get', metadata);
+  getChatChannelFollowers(
+    metadata: types.GetChatChannelFollowersMetadataParam
+  ): Promise<
+    | FetchResponse<200, types.GetChatChannelFollowersResponse200>
+    | FetchResponse<number, types.GetChatChannelFollowersResponseDefault>
+  > {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/chat/channels/{channel_id}/followers",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -1683,8 +2451,17 @@ class SDK {
    *
    * @summary Retrieve members of a Channel (based on Channel ID)
    */
-  getChatChannelMembers(metadata: types.GetChatChannelMembersMetadataParam): Promise<FetchResponse<200, types.GetChatChannelMembersResponse200> | FetchResponse<number, types.GetChatChannelMembersResponseDefault>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/chat/channels/{channel_id}/members', 'get', metadata);
+  getChatChannelMembers(
+    metadata: types.GetChatChannelMembersMetadataParam
+  ): Promise<
+    | FetchResponse<200, types.GetChatChannelMembersResponse200>
+    | FetchResponse<number, types.GetChatChannelMembersResponseDefault>
+  > {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/chat/channels/{channel_id}/members",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -1693,8 +2470,17 @@ class SDK {
    * @summary Retrieve Channel messages
    * @throws FetchError<404, types.GetChatMessagesResponse404> Returns when the specified {channelId} was not found.
    */
-  getChatMessages(metadata: types.GetChatMessagesMetadataParam): Promise<FetchResponse<200, types.GetChatMessagesResponse200> | FetchResponse<number, types.GetChatMessagesResponseDefault>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/chat/channels/{channel_id}/messages', 'get', metadata);
+  getChatMessages(
+    metadata: types.GetChatMessagesMetadataParam
+  ): Promise<
+    | FetchResponse<200, types.GetChatMessagesResponse200>
+    | FetchResponse<number, types.GetChatMessagesResponseDefault>
+  > {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/chat/channels/{channel_id}/messages",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -1703,8 +2489,19 @@ class SDK {
    * @summary Send a message
    * @throws FetchError<404, types.CreateChatMessageResponse404> Returns when {channelId} was not found.
    */
-  createChatMessage(body: types.CreateChatMessageBodyParam, metadata: types.CreateChatMessageMetadataParam): Promise<FetchResponse<201, types.CreateChatMessageResponse201> | FetchResponse<number, types.CreateChatMessageResponseDefault>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/chat/channels/{channel_id}/messages', 'post', body, metadata);
+  createChatMessage(
+    body: types.CreateChatMessageBodyParam,
+    metadata: types.CreateChatMessageMetadataParam
+  ): Promise<
+    | FetchResponse<201, types.CreateChatMessageResponse201>
+    | FetchResponse<number, types.CreateChatMessageResponseDefault>
+  > {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/chat/channels/{channel_id}/messages",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1714,8 +2511,19 @@ class SDK {
    * @throws FetchError<400, types.PatchChatMessageResponse400> Returns when the request is invalid.
    * @throws FetchError<404, types.PatchChatMessageResponse404> Returns when {messageId} was not found.
    */
-  patchChatMessage(body: types.PatchChatMessageBodyParam, metadata: types.PatchChatMessageMetadataParam): Promise<FetchResponse<200, types.PatchChatMessageResponse200> | FetchResponse<number, types.PatchChatMessageResponseDefault>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/chat/messages/{message_id}', 'patch', body, metadata);
+  patchChatMessage(
+    body: types.PatchChatMessageBodyParam,
+    metadata: types.PatchChatMessageMetadataParam
+  ): Promise<
+    | FetchResponse<200, types.PatchChatMessageResponse200>
+    | FetchResponse<number, types.PatchChatMessageResponseDefault>
+  > {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/chat/messages/{message_id}",
+      "patch",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1723,8 +2531,17 @@ class SDK {
    *
    * @summary Deletes a message.
    */
-  deleteChatMessage(metadata: types.DeleteChatMessageMetadataParam): Promise<FetchResponse<204, types.DeleteChatMessageResponse204> | FetchResponse<number, types.DeleteChatMessageResponseDefault>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/chat/messages/{message_id}', 'delete', metadata);
+  deleteChatMessage(
+    metadata: types.DeleteChatMessageMetadataParam
+  ): Promise<
+    | FetchResponse<204, types.DeleteChatMessageResponse204>
+    | FetchResponse<number, types.DeleteChatMessageResponseDefault>
+  > {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/chat/messages/{message_id}",
+      "delete",
+      metadata
+    );
   }
 
   /**
@@ -1733,8 +2550,17 @@ class SDK {
    * @summary Retrieve reactions for a message
    * @throws FetchError<404, types.GetChatMessageReactionsResponse404> Returns when the specified {messageId} was not found
    */
-  getChatMessageReactions(metadata: types.GetChatMessageReactionsMetadataParam): Promise<FetchResponse<200, types.GetChatMessageReactionsResponse200> | FetchResponse<number, types.GetChatMessageReactionsResponseDefault>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/chat/messages/{message_id}/reactions', 'get', metadata);
+  getChatMessageReactions(
+    metadata: types.GetChatMessageReactionsMetadataParam
+  ): Promise<
+    | FetchResponse<200, types.GetChatMessageReactionsResponse200>
+    | FetchResponse<number, types.GetChatMessageReactionsResponseDefault>
+  > {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/chat/messages/{message_id}/reactions",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -1744,8 +2570,19 @@ class SDK {
    * @throws FetchError<400, types.CreateChatReactionResponse400> Returns when the reaction {reaction} is not supported or already exists.
    * @throws FetchError<404, types.CreateChatReactionResponse404> Returns when the message {messageId} is not found.
    */
-  createChatReaction(body: types.CreateChatReactionBodyParam, metadata: types.CreateChatReactionMetadataParam): Promise<FetchResponse<201, types.CreateChatReactionResponse201> | FetchResponse<number, types.CreateChatReactionResponseDefault>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/chat/messages/{message_id}/reactions', 'post', body, metadata);
+  createChatReaction(
+    body: types.CreateChatReactionBodyParam,
+    metadata: types.CreateChatReactionMetadataParam
+  ): Promise<
+    | FetchResponse<201, types.CreateChatReactionResponse201>
+    | FetchResponse<number, types.CreateChatReactionResponseDefault>
+  > {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/chat/messages/{message_id}/reactions",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1755,8 +2592,17 @@ class SDK {
    * @throws FetchError<400, types.DeleteChatReactionResponse400> Returns when the reaction {reaction} is not supported.
    * @throws FetchError<404, types.DeleteChatReactionResponse404> Returns when the message {messageId} or the reaction {reaction} is not found.
    */
-  deleteChatReaction(metadata: types.DeleteChatReactionMetadataParam): Promise<FetchResponse<204, types.DeleteChatReactionResponse204> | FetchResponse<number, types.DeleteChatReactionResponseDefault>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/chat/messages/{message_id}/reactions/{reaction}', 'delete', metadata);
+  deleteChatReaction(
+    metadata: types.DeleteChatReactionMetadataParam
+  ): Promise<
+    | FetchResponse<204, types.DeleteChatReactionResponse204>
+    | FetchResponse<number, types.DeleteChatReactionResponseDefault>
+  > {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/chat/messages/{message_id}/reactions/{reaction}",
+      "delete",
+      metadata
+    );
   }
 
   /**
@@ -1765,8 +2611,17 @@ class SDK {
    * @summary Retrieve replies to a message
    * @throws FetchError<404, types.GetChatMessageRepliesResponse404> Returns when the specified {messageId} was not found.
    */
-  getChatMessageReplies(metadata: types.GetChatMessageRepliesMetadataParam): Promise<FetchResponse<200, types.GetChatMessageRepliesResponse200> | FetchResponse<number, types.GetChatMessageRepliesResponseDefault>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/chat/messages/{message_id}/replies', 'get', metadata);
+  getChatMessageReplies(
+    metadata: types.GetChatMessageRepliesMetadataParam
+  ): Promise<
+    | FetchResponse<200, types.GetChatMessageRepliesResponse200>
+    | FetchResponse<number, types.GetChatMessageRepliesResponseDefault>
+  > {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/chat/messages/{message_id}/replies",
+      "get",
+      metadata
+    );
   }
 
   /**
@@ -1774,8 +2629,19 @@ class SDK {
    *
    * @summary Create a reply message
    */
-  createReplyMessage(body: types.CreateReplyMessageBodyParam, metadata: types.CreateReplyMessageMetadataParam): Promise<FetchResponse<201, types.CreateReplyMessageResponse201> | FetchResponse<number, types.CreateReplyMessageResponseDefault>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/chat/messages/{message_id}/replies', 'post', body, metadata);
+  createReplyMessage(
+    body: types.CreateReplyMessageBodyParam,
+    metadata: types.CreateReplyMessageMetadataParam
+  ): Promise<
+    | FetchResponse<201, types.CreateReplyMessageResponse201>
+    | FetchResponse<number, types.CreateReplyMessageResponseDefault>
+  > {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/chat/messages/{message_id}/replies",
+      "post",
+      body,
+      metadata
+    );
   }
 
   /**
@@ -1784,14 +2650,460 @@ class SDK {
    * @summary Retrieve tagged users for a message
    * @throws FetchError<404, types.GetChatMessageTaggedUsersResponse404> Returns when the specified {messageId} was not found
    */
-  getChatMessageTaggedUsers(metadata: types.GetChatMessageTaggedUsersMetadataParam): Promise<FetchResponse<200, types.GetChatMessageTaggedUsersResponse200> | FetchResponse<number, types.GetChatMessageTaggedUsersResponseDefault>> {
-    return this.core.fetch('/v3/workspaces/{workspace_id}/chat/messages/{message_id}/tagged_users', 'get', metadata);
+  getChatMessageTaggedUsers(
+    metadata: types.GetChatMessageTaggedUsersMetadataParam
+  ): Promise<
+    | FetchResponse<200, types.GetChatMessageTaggedUsersResponse200>
+    | FetchResponse<number, types.GetChatMessageTaggedUsersResponseDefault>
+  > {
+    return this.core.fetch(
+      "/v3/workspaces/{workspace_id}/chat/messages/{message_id}/tagged_users",
+      "get",
+      metadata
+    );
   }
 }
 
-const createSDK = (() => { return new SDK(); })()
-;
-
+const createSDK = (() => {
+  return new SDK();
+})();
 export default createSDK;
 
-export type { AddDependencyBodyParam, AddDependencyMetadataParam, AddDependencyResponse200, AddGuestToFolderBodyParam, AddGuestToFolderMetadataParam, AddGuestToFolderResponse200, AddGuestToListBodyParam, AddGuestToListMetadataParam, AddGuestToListResponse200, AddGuestToTaskBodyParam, AddGuestToTaskMetadataParam, AddGuestToTaskResponse200, AddTagToTaskMetadataParam, AddTagToTaskResponse200, AddTaskLinkMetadataParam, AddTaskLinkResponse200, AddTaskToListMetadataParam, AddTaskToListResponse200, AddtagsfromtimeentriesBodyParam, AddtagsfromtimeentriesMetadataParam, AddtagsfromtimeentriesResponse200, ChangetagnamesfromtimeentriesBodyParam, ChangetagnamesfromtimeentriesMetadataParam, ChangetagnamesfromtimeentriesResponse200, CreateChatChannelBodyParam, CreateChatChannelMetadataParam, CreateChatChannelResponse200, CreateChatChannelResponse201, CreateChatChannelResponseDefault, CreateChatMessageBodyParam, CreateChatMessageMetadataParam, CreateChatMessageResponse201, CreateChatMessageResponse404, CreateChatMessageResponseDefault, CreateChatReactionBodyParam, CreateChatReactionMetadataParam, CreateChatReactionResponse201, CreateChatReactionResponse400, CreateChatReactionResponse404, CreateChatReactionResponseDefault, CreateChatViewCommentBodyParam, CreateChatViewCommentMetadataParam, CreateChatViewCommentResponse200, CreateChecklistBodyParam, CreateChecklistItemBodyParam, CreateChecklistItemMetadataParam, CreateChecklistItemResponse200, CreateChecklistMetadataParam, CreateChecklistResponse200, CreateDirectMessageChatChannelBodyParam, CreateDirectMessageChatChannelMetadataParam, CreateDirectMessageChatChannelResponse200, CreateDirectMessageChatChannelResponse201, CreateDirectMessageChatChannelResponseDefault, CreateDocBodyParam, CreateDocMetadataParam, CreateDocResponse201, CreateFolderBodyParam, CreateFolderFromTemplateBodyParam, CreateFolderFromTemplateMetadataParam, CreateFolderFromTemplateResponse200, CreateFolderFromTemplateResponse400, CreateFolderListFromTemplateBodyParam, CreateFolderListFromTemplateMetadataParam, CreateFolderListFromTemplateResponse200, CreateFolderListFromTemplateResponse400, CreateFolderMetadataParam, CreateFolderResponse200, CreateFolderViewBodyParam, CreateFolderViewMetadataParam, CreateFolderViewResponse200, CreateFolderlessListBodyParam, CreateFolderlessListMetadataParam, CreateFolderlessListResponse200, CreateGoalBodyParam, CreateGoalMetadataParam, CreateGoalResponse200, CreateKeyResultBodyParam, CreateKeyResultMetadataParam, CreateKeyResultResponse200, CreateListBodyParam, CreateListCommentBodyParam, CreateListCommentMetadataParam, CreateListCommentResponse200, CreateListMetadataParam, CreateListResponse200, CreateListViewBodyParam, CreateListViewMetadataParam, CreateListViewResponse200, CreateLocationChatChannelBodyParam, CreateLocationChatChannelMetadataParam, CreateLocationChatChannelResponse200, CreateLocationChatChannelResponse201, CreateLocationChatChannelResponseDefault, CreatePageBodyParam, CreatePageMetadataParam, CreatePageResponse201, CreateReplyMessageBodyParam, CreateReplyMessageMetadataParam, CreateReplyMessageResponse201, CreateReplyMessageResponseDefault, CreateSpaceBodyParam, CreateSpaceListFromTemplateBodyParam, CreateSpaceListFromTemplateMetadataParam, CreateSpaceListFromTemplateResponse200, CreateSpaceListFromTemplateResponse400, CreateSpaceMetadataParam, CreateSpaceResponse200, CreateSpaceTagBodyParam, CreateSpaceTagMetadataParam, CreateSpaceTagResponse200, CreateSpaceViewBodyParam, CreateSpaceViewMetadataParam, CreateSpaceViewResponse200, CreateTaskAttachmentBodyParam, CreateTaskAttachmentMetadataParam, CreateTaskAttachmentResponse200, CreateTaskBodyParam, CreateTaskCommentBodyParam, CreateTaskCommentMetadataParam, CreateTaskCommentResponse200, CreateTaskFromTemplateBodyParam, CreateTaskFromTemplateMetadataParam, CreateTaskFromTemplateResponse200, CreateTaskMetadataParam, CreateTaskResponse200, CreateTeamViewBodyParam, CreateTeamViewMetadataParam, CreateTeamViewResponse200, CreateThreadedCommentBodyParam, CreateThreadedCommentMetadataParam, CreateThreadedCommentResponse200, CreateUserGroupBodyParam, CreateUserGroupMetadataParam, CreateUserGroupResponse200, CreateWebhookBodyParam, CreateWebhookMetadataParam, CreateWebhookResponse200, CreateWorkspaceAuditLogBodyParam, CreateWorkspaceAuditLogMetadataParam, CreateWorkspaceAuditLogResponse200, CreateatimeentryBodyParam, CreateatimeentryMetadataParam, CreateatimeentryResponse200, DeleteChatChannelMetadataParam, DeleteChatChannelResponse204, DeleteChatChannelResponse404, DeleteChatChannelResponseDefault, DeleteChatMessageMetadataParam, DeleteChatMessageResponse204, DeleteChatMessageResponseDefault, DeleteChatReactionMetadataParam, DeleteChatReactionResponse204, DeleteChatReactionResponse400, DeleteChatReactionResponse404, DeleteChatReactionResponseDefault, DeleteChecklistItemMetadataParam, DeleteChecklistItemResponse200, DeleteChecklistMetadataParam, DeleteChecklistResponse200, DeleteCommentMetadataParam, DeleteCommentResponse200, DeleteDependencyMetadataParam, DeleteDependencyResponse200, DeleteFolderMetadataParam, DeleteFolderResponse200, DeleteGoalMetadataParam, DeleteGoalResponse200, DeleteKeyResultMetadataParam, DeleteKeyResultResponse200, DeleteListMetadataParam, DeleteListResponse200, DeleteSpaceMetadataParam, DeleteSpaceResponse200, DeleteSpaceTagBodyParam, DeleteSpaceTagMetadataParam, DeleteSpaceTagResponse200, DeleteTaskLinkMetadataParam, DeleteTaskLinkResponse200, DeleteTaskMetadataParam, DeleteTaskResponse204, DeleteTeamMetadataParam, DeleteTeamResponse200, DeleteViewMetadataParam, DeleteViewResponse200, DeleteWebhookMetadataParam, DeleteWebhookResponse200, DeleteatimeEntryMetadataParam, DeleteatimeEntryResponse200, DeletetimetrackedMetadataParam, DeletetimetrackedResponse200, EditChecklistBodyParam, EditChecklistItemBodyParam, EditChecklistItemMetadataParam, EditChecklistItemResponse200, EditChecklistMetadataParam, EditChecklistResponse200, EditGuestOnWorkspaceBodyParam, EditGuestOnWorkspaceMetadataParam, EditGuestOnWorkspaceResponse200, EditKeyResultBodyParam, EditKeyResultMetadataParam, EditKeyResultResponse200, EditPageBodyParam, EditPageMetadataParam, EditPageResponse200, EditSpaceTagBodyParam, EditSpaceTagMetadataParam, EditSpaceTagResponse200, EditUserOnWorkspaceBodyParam, EditUserOnWorkspaceMetadataParam, EditUserOnWorkspaceResponse200, EdittimetrackedBodyParam, EdittimetrackedMetadataParam, EdittimetrackedResponse200, GetAccessTokenBodyParam, GetAccessTokenResponse200, GetAccessibleCustomFieldsMetadataParam, GetAccessibleCustomFieldsResponse200, GetAuthorizedTeamsResponse200, GetAuthorizedUserResponse200, GetBulkTasksTimeinStatusMetadataParam, GetBulkTasksTimeinStatusResponse200, GetChatChannelFollowersMetadataParam, GetChatChannelFollowersResponse200, GetChatChannelFollowersResponse404, GetChatChannelFollowersResponseDefault, GetChatChannelMembersMetadataParam, GetChatChannelMembersResponse200, GetChatChannelMembersResponseDefault, GetChatChannelMetadataParam, GetChatChannelResponse200, GetChatChannelResponse404, GetChatChannelResponseDefault, GetChatChannelsMetadataParam, GetChatChannelsResponse200, GetChatChannelsResponseDefault, GetChatMessageReactionsMetadataParam, GetChatMessageReactionsResponse200, GetChatMessageReactionsResponse404, GetChatMessageReactionsResponseDefault, GetChatMessageRepliesMetadataParam, GetChatMessageRepliesResponse200, GetChatMessageRepliesResponse404, GetChatMessageRepliesResponseDefault, GetChatMessageTaggedUsersMetadataParam, GetChatMessageTaggedUsersResponse200, GetChatMessageTaggedUsersResponse404, GetChatMessageTaggedUsersResponseDefault, GetChatMessagesMetadataParam, GetChatMessagesResponse200, GetChatMessagesResponse404, GetChatMessagesResponseDefault, GetChatViewCommentsMetadataParam, GetChatViewCommentsResponse200, GetCustomItemsMetadataParam, GetCustomItemsResponse200, GetCustomRolesMetadataParam, GetCustomRolesResponse200, GetDocMetadataParam, GetDocPageListingMetadataParam, GetDocPageListingResponse200, GetDocPagesMetadataParam, GetDocPagesResponse200, GetDocResponse200, GetFilteredTeamTasksMetadataParam, GetFilteredTeamTasksResponse200, GetFolderAvailableFieldsMetadataParam, GetFolderAvailableFieldsResponse200, GetFolderMetadataParam, GetFolderResponse200, GetFolderViewsMetadataParam, GetFolderViewsResponse200, GetFolderlessListsMetadataParam, GetFolderlessListsResponse200, GetFoldersMetadataParam, GetFoldersResponse200, GetGoalMetadataParam, GetGoalResponse200, GetGoalsMetadataParam, GetGoalsResponse200, GetGuestMetadataParam, GetGuestResponse200, GetListCommentsMetadataParam, GetListCommentsResponse200, GetListMembersMetadataParam, GetListMembersResponse200, GetListMetadataParam, GetListResponse200, GetListViewsMetadataParam, GetListViewsResponse200, GetListsMetadataParam, GetListsResponse200, GetPageMetadataParam, GetPageResponse200, GetSpaceAvailableFieldsMetadataParam, GetSpaceAvailableFieldsResponse200, GetSpaceMetadataParam, GetSpaceResponse200, GetSpaceTagsMetadataParam, GetSpaceTagsResponse200, GetSpaceViewsMetadataParam, GetSpaceViewsResponse200, GetSpacesMetadataParam, GetSpacesResponse200, GetTaskCommentsMetadataParam, GetTaskCommentsResponse200, GetTaskMembersMetadataParam, GetTaskMembersResponse200, GetTaskMetadataParam, GetTaskResponse200, GetTaskSTimeinStatusMetadataParam, GetTaskSTimeinStatusResponse200, GetTaskTemplatesMetadataParam, GetTaskTemplatesResponse200, GetTasksMetadataParam, GetTasksResponse200, GetTeamAvailableFieldsMetadataParam, GetTeamAvailableFieldsResponse200, GetTeamViewsMetadataParam, GetTeamViewsResponse200, GetTeams1MetadataParam, GetTeams1Response200, GetThreadedCommentsMetadataParam, GetThreadedCommentsResponse200, GetUserMetadataParam, GetUserResponse200, GetViewMetadataParam, GetViewResponse200, GetViewTasksMetadataParam, GetViewTasksResponse200, GetWebhooksMetadataParam, GetWebhooksResponse200, GetWorkspaceplanMetadataParam, GetWorkspaceplanResponse200, GetWorkspaceseatsMetadataParam, GetWorkspaceseatsResponse200, GetalltagsfromtimeentriesMetadataParam, GetalltagsfromtimeentriesResponse200, GetrunningtimeentryMetadataParam, GetrunningtimeentryResponse200, GetsingulartimeentryMetadataParam, GetsingulartimeentryResponse200, GettimeentrieswithinadaterangeMetadataParam, GettimeentrieswithinadaterangeResponse200, GettimeentryhistoryMetadataParam, GettimeentryhistoryResponse200, GettrackedtimeMetadataParam, GettrackedtimeResponse200, InviteGuestToWorkspaceBodyParam, InviteGuestToWorkspaceMetadataParam, InviteGuestToWorkspaceResponse200, InviteUserToWorkspaceBodyParam, InviteUserToWorkspaceMetadataParam, InviteUserToWorkspaceResponse200, MergeTasksBodyParam, MergeTasksMetadataParam, PatchChatMessageBodyParam, PatchChatMessageMetadataParam, PatchChatMessageResponse200, PatchChatMessageResponse400, PatchChatMessageResponse404, PatchChatMessageResponseDefault, RemoveCustomFieldValueMetadataParam, RemoveCustomFieldValueResponse200, RemoveGuestFromFolderMetadataParam, RemoveGuestFromFolderResponse200, RemoveGuestFromListMetadataParam, RemoveGuestFromListResponse200, RemoveGuestFromTaskMetadataParam, RemoveGuestFromTaskResponse200, RemoveGuestFromWorkspaceMetadataParam, RemoveGuestFromWorkspaceResponse200, RemoveTagFromTaskMetadataParam, RemoveTagFromTaskResponse200, RemoveTaskFromListMetadataParam, RemoveTaskFromListResponse200, RemoveUserFromWorkspaceMetadataParam, RemoveUserFromWorkspaceResponse200, RemovetagsfromtimeentriesBodyParam, RemovetagsfromtimeentriesMetadataParam, RemovetagsfromtimeentriesResponse200, SearchDocsMetadataParam, SearchDocsResponse200, SetCustomFieldValueBodyParam, SetCustomFieldValueMetadataParam, SetCustomFieldValueResponse200, SharedHierarchyMetadataParam, SharedHierarchyResponse200, StartatimeEntryBodyParam, StartatimeEntryMetadataParam, StartatimeEntryResponse200, StopatimeEntryMetadataParam, StopatimeEntryResponse200, TracktimeBodyParam, TracktimeMetadataParam, TracktimeResponse200, UpdateChatChannelBodyParam, UpdateChatChannelMetadataParam, UpdateChatChannelResponse200, UpdateChatChannelResponse400, UpdateChatChannelResponse404, UpdateChatChannelResponseDefault, UpdateCommentBodyParam, UpdateCommentMetadataParam, UpdateCommentResponse200, UpdateFolderBodyParam, UpdateFolderMetadataParam, UpdateFolderResponse200, UpdateGoalBodyParam, UpdateGoalMetadataParam, UpdateGoalResponse200, UpdateListBodyParam, UpdateListMetadataParam, UpdateListResponse200, UpdatePrivacyAndAccessBodyParam, UpdatePrivacyAndAccessMetadataParam, UpdatePrivacyAndAccessResponse200, UpdateSpaceBodyParam, UpdateSpaceMetadataParam, UpdateSpaceResponse200, UpdateTaskBodyParam, UpdateTaskMetadataParam, UpdateTaskResponse200, UpdateTeamBodyParam, UpdateTeamMetadataParam, UpdateTeamResponse200, UpdateViewBodyParam, UpdateViewMetadataParam, UpdateViewResponse200, UpdateWebhookBodyParam, UpdateWebhookMetadataParam, UpdateWebhookResponse200, UpdateatimeEntryBodyParam, UpdateatimeEntryMetadataParam, UpdateatimeEntryResponse200 } from './types';
+export type {
+  AddDependencyBodyParam,
+  AddDependencyMetadataParam,
+  AddDependencyResponse200,
+  AddGuestToFolderBodyParam,
+  AddGuestToFolderMetadataParam,
+  AddGuestToFolderResponse200,
+  AddGuestToListBodyParam,
+  AddGuestToListMetadataParam,
+  AddGuestToListResponse200,
+  AddGuestToTaskBodyParam,
+  AddGuestToTaskMetadataParam,
+  AddGuestToTaskResponse200,
+  AddTagToTaskMetadataParam,
+  AddTagToTaskResponse200,
+  AddTaskLinkMetadataParam,
+  AddTaskLinkResponse200,
+  AddTaskToListMetadataParam,
+  AddTaskToListResponse200,
+  AddtagsfromtimeentriesBodyParam,
+  AddtagsfromtimeentriesMetadataParam,
+  AddtagsfromtimeentriesResponse200,
+  ChangetagnamesfromtimeentriesBodyParam,
+  ChangetagnamesfromtimeentriesMetadataParam,
+  ChangetagnamesfromtimeentriesResponse200,
+  CreateChatChannelBodyParam,
+  CreateChatChannelMetadataParam,
+  CreateChatChannelResponse200,
+  CreateChatChannelResponse201,
+  CreateChatChannelResponseDefault,
+  CreateChatMessageBodyParam,
+  CreateChatMessageMetadataParam,
+  CreateChatMessageResponse201,
+  CreateChatMessageResponse404,
+  CreateChatMessageResponseDefault,
+  CreateChatReactionBodyParam,
+  CreateChatReactionMetadataParam,
+  CreateChatReactionResponse201,
+  CreateChatReactionResponse400,
+  CreateChatReactionResponse404,
+  CreateChatReactionResponseDefault,
+  CreateChatViewCommentBodyParam,
+  CreateChatViewCommentMetadataParam,
+  CreateChatViewCommentResponse200,
+  CreateChecklistBodyParam,
+  CreateChecklistItemBodyParam,
+  CreateChecklistItemMetadataParam,
+  CreateChecklistItemResponse200,
+  CreateChecklistMetadataParam,
+  CreateChecklistResponse200,
+  CreateDirectMessageChatChannelBodyParam,
+  CreateDirectMessageChatChannelMetadataParam,
+  CreateDirectMessageChatChannelResponse200,
+  CreateDirectMessageChatChannelResponse201,
+  CreateDirectMessageChatChannelResponseDefault,
+  CreateDocBodyParam,
+  CreateDocMetadataParam,
+  CreateDocResponse201,
+  CreateFolderBodyParam,
+  CreateFolderFromTemplateBodyParam,
+  CreateFolderFromTemplateMetadataParam,
+  CreateFolderFromTemplateResponse200,
+  CreateFolderFromTemplateResponse400,
+  CreateFolderListFromTemplateBodyParam,
+  CreateFolderListFromTemplateMetadataParam,
+  CreateFolderListFromTemplateResponse200,
+  CreateFolderListFromTemplateResponse400,
+  CreateFolderMetadataParam,
+  CreateFolderResponse200,
+  CreateFolderViewBodyParam,
+  CreateFolderViewMetadataParam,
+  CreateFolderViewResponse200,
+  CreateFolderlessListBodyParam,
+  CreateFolderlessListMetadataParam,
+  CreateFolderlessListResponse200,
+  CreateGoalBodyParam,
+  CreateGoalMetadataParam,
+  CreateGoalResponse200,
+  CreateKeyResultBodyParam,
+  CreateKeyResultMetadataParam,
+  CreateKeyResultResponse200,
+  CreateListBodyParam,
+  CreateListCommentBodyParam,
+  CreateListCommentMetadataParam,
+  CreateListCommentResponse200,
+  CreateListMetadataParam,
+  CreateListResponse200,
+  CreateListViewBodyParam,
+  CreateListViewMetadataParam,
+  CreateListViewResponse200,
+  CreateLocationChatChannelBodyParam,
+  CreateLocationChatChannelMetadataParam,
+  CreateLocationChatChannelResponse200,
+  CreateLocationChatChannelResponse201,
+  CreateLocationChatChannelResponseDefault,
+  CreatePageBodyParam,
+  CreatePageMetadataParam,
+  CreatePageResponse201,
+  CreateReplyMessageBodyParam,
+  CreateReplyMessageMetadataParam,
+  CreateReplyMessageResponse201,
+  CreateReplyMessageResponseDefault,
+  CreateSpaceBodyParam,
+  CreateSpaceListFromTemplateBodyParam,
+  CreateSpaceListFromTemplateMetadataParam,
+  CreateSpaceListFromTemplateResponse200,
+  CreateSpaceListFromTemplateResponse400,
+  CreateSpaceMetadataParam,
+  CreateSpaceResponse200,
+  CreateSpaceTagBodyParam,
+  CreateSpaceTagMetadataParam,
+  CreateSpaceTagResponse200,
+  CreateSpaceViewBodyParam,
+  CreateSpaceViewMetadataParam,
+  CreateSpaceViewResponse200,
+  CreateTaskAttachmentBodyParam,
+  CreateTaskAttachmentMetadataParam,
+  CreateTaskAttachmentResponse200,
+  CreateTaskBodyParam,
+  CreateTaskCommentBodyParam,
+  CreateTaskCommentMetadataParam,
+  CreateTaskCommentResponse200,
+  CreateTaskFromTemplateBodyParam,
+  CreateTaskFromTemplateMetadataParam,
+  CreateTaskFromTemplateResponse200,
+  CreateTaskMetadataParam,
+  CreateTaskResponse200,
+  CreateTeamViewBodyParam,
+  CreateTeamViewMetadataParam,
+  CreateTeamViewResponse200,
+  CreateThreadedCommentBodyParam,
+  CreateThreadedCommentMetadataParam,
+  CreateThreadedCommentResponse200,
+  CreateUserGroupBodyParam,
+  CreateUserGroupMetadataParam,
+  CreateUserGroupResponse200,
+  CreateWebhookBodyParam,
+  CreateWebhookMetadataParam,
+  CreateWebhookResponse200,
+  CreateWorkspaceAuditLogBodyParam,
+  CreateWorkspaceAuditLogMetadataParam,
+  CreateWorkspaceAuditLogResponse200,
+  CreateatimeentryBodyParam,
+  CreateatimeentryMetadataParam,
+  CreateatimeentryResponse200,
+  DeleteChatChannelMetadataParam,
+  DeleteChatChannelResponse204,
+  DeleteChatChannelResponse404,
+  DeleteChatChannelResponseDefault,
+  DeleteChatMessageMetadataParam,
+  DeleteChatMessageResponse204,
+  DeleteChatMessageResponseDefault,
+  DeleteChatReactionMetadataParam,
+  DeleteChatReactionResponse204,
+  DeleteChatReactionResponse400,
+  DeleteChatReactionResponse404,
+  DeleteChatReactionResponseDefault,
+  DeleteChecklistItemMetadataParam,
+  DeleteChecklistItemResponse200,
+  DeleteChecklistMetadataParam,
+  DeleteChecklistResponse200,
+  DeleteCommentMetadataParam,
+  DeleteCommentResponse200,
+  DeleteDependencyMetadataParam,
+  DeleteDependencyResponse200,
+  DeleteFolderMetadataParam,
+  DeleteFolderResponse200,
+  DeleteGoalMetadataParam,
+  DeleteGoalResponse200,
+  DeleteKeyResultMetadataParam,
+  DeleteKeyResultResponse200,
+  DeleteListMetadataParam,
+  DeleteListResponse200,
+  DeleteSpaceMetadataParam,
+  DeleteSpaceResponse200,
+  DeleteSpaceTagBodyParam,
+  DeleteSpaceTagMetadataParam,
+  DeleteSpaceTagResponse200,
+  DeleteTaskLinkMetadataParam,
+  DeleteTaskLinkResponse200,
+  DeleteTaskMetadataParam,
+  DeleteTaskResponse204,
+  DeleteTeamMetadataParam,
+  DeleteTeamResponse200,
+  DeleteViewMetadataParam,
+  DeleteViewResponse200,
+  DeleteWebhookMetadataParam,
+  DeleteWebhookResponse200,
+  DeleteatimeEntryMetadataParam,
+  DeleteatimeEntryResponse200,
+  DeletetimetrackedMetadataParam,
+  DeletetimetrackedResponse200,
+  EditChecklistBodyParam,
+  EditChecklistItemBodyParam,
+  EditChecklistItemMetadataParam,
+  EditChecklistItemResponse200,
+  EditChecklistMetadataParam,
+  EditChecklistResponse200,
+  EditGuestOnWorkspaceBodyParam,
+  EditGuestOnWorkspaceMetadataParam,
+  EditGuestOnWorkspaceResponse200,
+  EditKeyResultBodyParam,
+  EditKeyResultMetadataParam,
+  EditKeyResultResponse200,
+  EditPageBodyParam,
+  EditPageMetadataParam,
+  EditPageResponse200,
+  EditSpaceTagBodyParam,
+  EditSpaceTagMetadataParam,
+  EditSpaceTagResponse200,
+  EditUserOnWorkspaceBodyParam,
+  EditUserOnWorkspaceMetadataParam,
+  EditUserOnWorkspaceResponse200,
+  EdittimetrackedBodyParam,
+  EdittimetrackedMetadataParam,
+  EdittimetrackedResponse200,
+  GetAccessTokenBodyParam,
+  GetAccessTokenResponse200,
+  GetAccessibleCustomFieldsMetadataParam,
+  GetAccessibleCustomFieldsResponse200,
+  GetAuthorizedTeamsResponse200,
+  GetAuthorizedUserResponse200,
+  GetBulkTasksTimeinStatusMetadataParam,
+  GetBulkTasksTimeinStatusResponse200,
+  GetChatChannelFollowersMetadataParam,
+  GetChatChannelFollowersResponse200,
+  GetChatChannelFollowersResponse404,
+  GetChatChannelFollowersResponseDefault,
+  GetChatChannelMembersMetadataParam,
+  GetChatChannelMembersResponse200,
+  GetChatChannelMembersResponseDefault,
+  GetChatChannelMetadataParam,
+  GetChatChannelResponse200,
+  GetChatChannelResponse404,
+  GetChatChannelResponseDefault,
+  GetChatChannelsMetadataParam,
+  GetChatChannelsResponse200,
+  GetChatChannelsResponseDefault,
+  GetChatMessageReactionsMetadataParam,
+  GetChatMessageReactionsResponse200,
+  GetChatMessageReactionsResponse404,
+  GetChatMessageReactionsResponseDefault,
+  GetChatMessageRepliesMetadataParam,
+  GetChatMessageRepliesResponse200,
+  GetChatMessageRepliesResponse404,
+  GetChatMessageRepliesResponseDefault,
+  GetChatMessageTaggedUsersMetadataParam,
+  GetChatMessageTaggedUsersResponse200,
+  GetChatMessageTaggedUsersResponse404,
+  GetChatMessageTaggedUsersResponseDefault,
+  GetChatMessagesMetadataParam,
+  GetChatMessagesResponse200,
+  GetChatMessagesResponse404,
+  GetChatMessagesResponseDefault,
+  GetChatViewCommentsMetadataParam,
+  GetChatViewCommentsResponse200,
+  GetCustomItemsMetadataParam,
+  GetCustomItemsResponse200,
+  GetCustomRolesMetadataParam,
+  GetCustomRolesResponse200,
+  GetDocMetadataParam,
+  GetDocPageListingMetadataParam,
+  GetDocPageListingResponse200,
+  GetDocPagesMetadataParam,
+  GetDocPagesResponse200,
+  GetDocResponse200,
+  GetFilteredTeamTasksMetadataParam,
+  GetFilteredTeamTasksResponse200,
+  GetFolderAvailableFieldsMetadataParam,
+  GetFolderAvailableFieldsResponse200,
+  GetFolderMetadataParam,
+  GetFolderResponse200,
+  GetFolderViewsMetadataParam,
+  GetFolderViewsResponse200,
+  GetFolderlessListsMetadataParam,
+  GetFolderlessListsResponse200,
+  GetFoldersMetadataParam,
+  GetFoldersResponse200,
+  GetGoalMetadataParam,
+  GetGoalResponse200,
+  GetGoalsMetadataParam,
+  GetGoalsResponse200,
+  GetGuestMetadataParam,
+  GetGuestResponse200,
+  GetListCommentsMetadataParam,
+  GetListCommentsResponse200,
+  GetListMembersMetadataParam,
+  GetListMembersResponse200,
+  GetListMetadataParam,
+  GetListResponse200,
+  GetListViewsMetadataParam,
+  GetListViewsResponse200,
+  GetListsMetadataParam,
+  GetListsResponse200,
+  GetPageMetadataParam,
+  GetPageResponse200,
+  GetSpaceAvailableFieldsMetadataParam,
+  GetSpaceAvailableFieldsResponse200,
+  GetSpaceMetadataParam,
+  GetSpaceResponse200,
+  GetSpaceTagsMetadataParam,
+  GetSpaceTagsResponse200,
+  GetSpaceViewsMetadataParam,
+  GetSpaceViewsResponse200,
+  GetSpacesMetadataParam,
+  GetSpacesResponse200,
+  GetTaskCommentsMetadataParam,
+  GetTaskCommentsResponse200,
+  GetTaskMembersMetadataParam,
+  GetTaskMembersResponse200,
+  GetTaskMetadataParam,
+  GetTaskResponse200,
+  GetTaskSTimeinStatusMetadataParam,
+  GetTaskSTimeinStatusResponse200,
+  GetTaskTemplatesMetadataParam,
+  GetTaskTemplatesResponse200,
+  GetTasksMetadataParam,
+  GetTasksResponse200,
+  GetTeamAvailableFieldsMetadataParam,
+  GetTeamAvailableFieldsResponse200,
+  GetTeamViewsMetadataParam,
+  GetTeamViewsResponse200,
+  GetTeams1MetadataParam,
+  GetTeams1Response200,
+  GetThreadedCommentsMetadataParam,
+  GetThreadedCommentsResponse200,
+  GetUserMetadataParam,
+  GetUserResponse200,
+  GetViewMetadataParam,
+  GetViewResponse200,
+  GetViewTasksMetadataParam,
+  GetViewTasksResponse200,
+  GetWebhooksMetadataParam,
+  GetWebhooksResponse200,
+  GetWorkspaceplanMetadataParam,
+  GetWorkspaceplanResponse200,
+  GetWorkspaceseatsMetadataParam,
+  GetWorkspaceseatsResponse200,
+  GetalltagsfromtimeentriesMetadataParam,
+  GetalltagsfromtimeentriesResponse200,
+  GetrunningtimeentryMetadataParam,
+  GetrunningtimeentryResponse200,
+  GetsingulartimeentryMetadataParam,
+  GetsingulartimeentryResponse200,
+  GettimeentrieswithinadaterangeMetadataParam,
+  GettimeentrieswithinadaterangeResponse200,
+  GettimeentryhistoryMetadataParam,
+  GettimeentryhistoryResponse200,
+  GettrackedtimeMetadataParam,
+  GettrackedtimeResponse200,
+  InviteGuestToWorkspaceBodyParam,
+  InviteGuestToWorkspaceMetadataParam,
+  InviteGuestToWorkspaceResponse200,
+  InviteUserToWorkspaceBodyParam,
+  InviteUserToWorkspaceMetadataParam,
+  InviteUserToWorkspaceResponse200,
+  MergeTasksBodyParam,
+  MergeTasksMetadataParam,
+  PatchChatMessageBodyParam,
+  PatchChatMessageMetadataParam,
+  PatchChatMessageResponse200,
+  PatchChatMessageResponse400,
+  PatchChatMessageResponse404,
+  PatchChatMessageResponseDefault,
+  RemoveCustomFieldValueMetadataParam,
+  RemoveCustomFieldValueResponse200,
+  RemoveGuestFromFolderMetadataParam,
+  RemoveGuestFromFolderResponse200,
+  RemoveGuestFromListMetadataParam,
+  RemoveGuestFromListResponse200,
+  RemoveGuestFromTaskMetadataParam,
+  RemoveGuestFromTaskResponse200,
+  RemoveGuestFromWorkspaceMetadataParam,
+  RemoveGuestFromWorkspaceResponse200,
+  RemoveTagFromTaskMetadataParam,
+  RemoveTagFromTaskResponse200,
+  RemoveTaskFromListMetadataParam,
+  RemoveTaskFromListResponse200,
+  RemoveUserFromWorkspaceMetadataParam,
+  RemoveUserFromWorkspaceResponse200,
+  RemovetagsfromtimeentriesBodyParam,
+  RemovetagsfromtimeentriesMetadataParam,
+  RemovetagsfromtimeentriesResponse200,
+  SearchDocsMetadataParam,
+  SearchDocsResponse200,
+  SetCustomFieldValueBodyParam,
+  SetCustomFieldValueMetadataParam,
+  SetCustomFieldValueResponse200,
+  SharedHierarchyMetadataParam,
+  SharedHierarchyResponse200,
+  StartatimeEntryBodyParam,
+  StartatimeEntryMetadataParam,
+  StartatimeEntryResponse200,
+  StopatimeEntryMetadataParam,
+  StopatimeEntryResponse200,
+  TracktimeBodyParam,
+  TracktimeMetadataParam,
+  TracktimeResponse200,
+  UpdateChatChannelBodyParam,
+  UpdateChatChannelMetadataParam,
+  UpdateChatChannelResponse200,
+  UpdateChatChannelResponse400,
+  UpdateChatChannelResponse404,
+  UpdateChatChannelResponseDefault,
+  UpdateCommentBodyParam,
+  UpdateCommentMetadataParam,
+  UpdateCommentResponse200,
+  UpdateFolderBodyParam,
+  UpdateFolderMetadataParam,
+  UpdateFolderResponse200,
+  UpdateGoalBodyParam,
+  UpdateGoalMetadataParam,
+  UpdateGoalResponse200,
+  UpdateListBodyParam,
+  UpdateListMetadataParam,
+  UpdateListResponse200,
+  UpdatePrivacyAndAccessBodyParam,
+  UpdatePrivacyAndAccessMetadataParam,
+  UpdatePrivacyAndAccessResponse200,
+  UpdateSpaceBodyParam,
+  UpdateSpaceMetadataParam,
+  UpdateSpaceResponse200,
+  UpdateTaskBodyParam,
+  UpdateTaskMetadataParam,
+  UpdateTaskResponse200,
+  UpdateTeamBodyParam,
+  UpdateTeamMetadataParam,
+  UpdateTeamResponse200,
+  UpdateViewBodyParam,
+  UpdateViewMetadataParam,
+  UpdateViewResponse200,
+  UpdateWebhookBodyParam,
+  UpdateWebhookMetadataParam,
+  UpdateWebhookResponse200,
+  UpdateatimeEntryBodyParam,
+  UpdateatimeEntryMetadataParam,
+  UpdateatimeEntryResponse200,
+} from "./types";
