@@ -17,7 +17,6 @@ const eslintConfig = [
       "node_modules",
       "out",
       "next.config.js",
-      "next-sitemap.config.js",
       "src/models",
       "src/ui-components",
       "src/hasura",

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://quangtho.id.vn/
+
+# Sitemaps
+Sitemap: https://quangtho.id.vn/sitemap.xml
